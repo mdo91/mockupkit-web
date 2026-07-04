@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup Kit - App Store Screenshot Mockups</title>
+  <style>
+    :root {
+      --page: #fff9ef;
+      --paper: #ffffff;
+      --ink: #111317;
+      --muted: #545a6a;
+      --pink: #ff79ba;
+      --cyan: #69dbff;
+      --yellow: #ffd95a;
+      --mint: #8df0cb;
+      --violet: #9e52f5;
+      --line: #121212;
+      --max: 1120px;
+      --shadow: 6px 6px 0 #000;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--page);
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 8px;
+      background: #111;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 8px; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #2f4bd8;
+      outline-offset: 3px;
+    }
+    .pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(158, 82, 245, 0.14) 2px, transparent 3px) 0 0 / 28px 28px,
+        linear-gradient(90deg, transparent 0 96%, rgba(0, 0, 0, 0.04) 96% 100%) 0 0 / 46px 46px;
+      opacity: 0.45;
+    }
+    .shape {
+      position: fixed;
+      z-index: 0;
+      border: 2px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    .s1 { width: 70px; height: 70px; border-radius: 50%; background: var(--pink); top: 100px; right: 9%; }
+    .s2 { width: 76px; height: 76px; background: var(--cyan); transform: rotate(16deg); top: 320px; left: 5%; }
+    .s3 {
+      width: 0; height: 0; box-shadow: none; border: 0;
+      border-left: 46px solid transparent;
+      border-right: 46px solid transparent;
+      border-bottom: 76px solid var(--yellow);
+      right: 7%;
+      bottom: 140px;
+      filter: drop-shadow(4px 4px 0 #000);
+    }
+    .s4 { width: 56px; height: 56px; border-radius: 14px; background: var(--mint); left: 8%; bottom: 70px; transform: rotate(-12deg); }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 2px solid #000;
+      background: rgba(255, 249, 239, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .brand img { height: 44px; width: auto; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 18px;
+    }
+    nav a {
+      color: #252a3c;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .store-badge { display: inline-block; line-height: 0; }
+    .store-badge img { height: 48px; width: auto; display: block; }
+    main { position: relative; z-index: 2; }
+    .hero { padding: clamp(64px, 10vw, 104px) 0 80px; }
+    .hero-card {
+      background: var(--paper);
+      border: 3px solid #000;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 3vw, 38px);
+      display: grid;
+      gap: 22px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+    }
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 2px solid #000;
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--mint);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5.8vw, 4.2rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+    }
+    .lead {
+      margin: 0 0 16px;
+      max-width: 56ch;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.1vw + .8rem, 1.12rem);
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .ghost {
+      text-decoration: none;
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: #fff;
+      color: #101317;
+      font-weight: 800;
+      padding: 10px 16px;
+      box-shadow: 4px 4px 0 #000;
+    }
+    .mock {
+      border: 3px solid #000;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 6px 6px 0 #000;
+      background: #fff;
+      transform: rotate(-1.2deg);
+    }
+    .mock img { width: 100%; display: block; }
+    .section { padding: clamp(72px, 9vw, 108px) 0; }
+    .panel {
+      background: var(--paper);
+      border: 3px solid #000;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 3vw, 32px);
+    }
+    .panel h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+    .sub { margin: 0 0 22px; color: var(--muted); max-width: 64ch; }
+    .features {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .feature {
+      border: 2px solid #000;
+      border-radius: 16px;
+      padding: 16px;
+      background: linear-gradient(145deg, #fff, #fffaf1);
+      box-shadow: 4px 4px 0 #000;
+    }
+    .feature h3 { margin: 0 0 8px; font-size: 1.2rem; }
+    .feature p { margin: 0; color: #464d62; }
+    .icon {
+      width: 24px;
+      height: 24px;
+      color: var(--violet);
+      margin-bottom: 10px;
+    }
+    .shots {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .shots figure {
+      margin: 0;
+      border: 2px solid #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 4px 4px 0 #000;
+      background: #fff;
+    }
+    .shots img { width: 100%; display: block; }
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .quote {
+      border: 2px solid #000;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 4px 4px 0 #000;
+      padding: 16px;
+      transition: transform .16s ease;
+    }
+    .quote:hover { transform: translateY(-3px) rotate(.5deg); }
+    .quote p { margin: 0 0 10px; color: #2c3146; }
+    .quote strong { font-size: .93rem; color: #5a617f; }
+    .cta-box {
+      border: 3px solid #000;
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 #000;
+      background: linear-gradient(120deg, #fff3ce, #ffc2df 38%, #9ce7ff 70%, #c0ffd7);
+      padding: clamp(22px, 4vw, 42px);
+      text-align: center;
+      color: #111;
+    }
+    .cta-box h2 { margin-top: 0; }
+    .chips {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: #fff;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: .86rem;
+    }
+    footer {
+      margin-top: 62px;
+      border-top: 2px solid #000;
+      background: #fff2d6;
+      padding: 24px 0 40px;
+      color: #20253a;
+      position: relative;
+      z-index: 2;
+    }
+    footer a { color: #1f3db5; }
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero-card { grid-template-columns: 1fr; }
+      .features, .shots, .quotes { grid-template-columns: 1fr; }
+      .shape { opacity: 0.65; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .mock, .quote { transform: none !important; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <span class="shape s1" aria-hidden="true"></span>
+  <span class="shape s2" aria-hidden="true"></span>
+  <span class="shape s3" aria-hidden="true"></span>
+  <span class="shape s4" aria-hidden="true"></span>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="./index.html">
+        <img src="./Assets/logo.png" alt="Mockup Kit logo">
+        <span>Mockup Kit</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#proof">Proof</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </nav>
+      <a class="store-badge" href="#" aria-label="Download on the Mac App Store">
+        <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <article class="hero-card">
+          <div>
+            <span class="tag">App Store screenshot workflow</span>
+            <h1>App Store screenshots in minutes</h1>
+            <p class="lead">Compose, position, and export iPhone mockups without leaving your Mac. Built for designers and indie teams shipping fast.</p>
+            <div class="hero-actions">
+              <a class="store-badge" href="#" aria-label="Download on the Mac App Store">
+                <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+              </a>
+              <a class="ghost" href="#">Try Free for 3 Days</a>
+            </div>
+          </div>
+          <figure class="mock">
+            <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap panel">
+        <h2>Designed to be fun and still conversion-friendly</h2>
+        <p class="sub">Decorative pattern outside, structured content inside: the best mix for startup promo pages.</p>
+        <div class="features">
+          <article class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Store Mockup</h3>
+            <p>Build screenshot sets for 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″ iPhone dimensions in one workspace.</p>
+          </article>
+          <article class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"/><rect x="10" y="10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Overlay Layers</h3>
+            <p>Add badges and artwork with drag-and-drop positioning and a live preview loop while editing.</p>
+          </article>
+          <article class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Rounded Image</h3>
+            <p>Set corner radius in pixels or percentages so every exported image matches your visual system.</p>
+          </article>
+          <article class="feature">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M4 18h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Fast Export</h3>
+            <p>Export JPEG and PNG at App Store Connect-aligned dimensions without extra manual resizing.</p>
+          </article>
+        </div>
+        <div class="shots">
+          <figure><img src="./Assets/asset-1.png" loading="lazy" alt="Mockup Kit first screenshot on light cartoon variation"></figure>
+          <figure><img src="./Assets/asset-2.png" loading="lazy" alt="Mockup Kit second screenshot on light cartoon variation"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="wrap panel">
+        <h2>Loved by teams shipping fast</h2>
+        <p class="sub">Social proof stays concise and legible with bold but controlled visual treatment.</p>
+        <div class="quotes">
+          <article class="quote"><p>"It's become an integral part of how I work. I ship App Store assets in minutes."</p><strong>- Alex Rivera, Indie Developer</strong></article>
+          <article class="quote"><p>"Clean, fast, and exactly what I needed for screenshot mockups on the Mac."</p><strong>- Jordan Lee, Product Designer</strong></article>
+          <article class="quote"><p>"The overlay tools alone are worth it. My workflow feels 10x faster."</p><strong>- Sam Okonkwo, UI/UX Designer</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="cta-box">
+          <h2>App Store screenshots in minutes</h2>
+          <p style="margin:0 auto 16px;max-width:62ch;">Free trial (3 days), then $1.99/month or $9.99 lifetime. Built for launch teams who care about both speed and style.</p>
+          <div class="chips">
+            <span class="chip">Apple Silicon</span>
+            <span class="chip">Intel Compatible</span>
+            <span class="chip">Graphics &amp; Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;">
+      <p>Questions? <a href="mailto:hi@damastechnologies.com">hi@damastechnologies.com</a></p>
+      <p><a href="./terms-of-use.html">Terms of Use</a> · <a href="./privacy-policy.html">Privacy Policy</a></p>
+      <p>© 2026 Damas Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const shapes = Array.from(document.querySelectorAll(".shape"));
+      window.addEventListener("pointermove", (event) => {
+        const x = (event.clientX / window.innerWidth) - 0.5;
+        const y = (event.clientY / window.innerHeight) - 0.5;
+        shapes.forEach((shape, i) => {
+          const depth = (i + 1) * 3.5;
+          const rotate = i === 1 || i === 3 ? (x * 5) : 0;
+          shape.style.transform = `translate(${x * depth}px, ${y * depth}px) rotate(${rotate}deg)`;
+        });
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup Kit - Privacy Policy</title>
+  <style>
+    :root {
+      --page: #fff9ef;
+      --paper: #ffffff;
+      --ink: #111317;
+      --muted: #545a6a;
+      --pink: #ff79ba;
+      --cyan: #69dbff;
+      --yellow: #ffd95a;
+      --mint: #8df0cb;
+      --line: #121212;
+      --max: 980px;
+      --shadow: 6px 6px 0 #000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 8px;
+      background: #111;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 8px; }
+    .pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(158, 82, 245, 0.14) 2px, transparent 3px) 0 0 / 28px 28px,
+        linear-gradient(90deg, transparent 0 96%, rgba(0, 0, 0, 0.04) 96% 100%) 0 0 / 46px 46px;
+      opacity: 0.4;
+    }
+    .shape {
+      position: fixed;
+      z-index: 0;
+      border: 2px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      pointer-events: none;
+    }
+    .s1 { width: 56px; height: 56px; border-radius: 50%; background: var(--yellow); top: 100px; right: 9%; }
+    .s2 { width: 60px; height: 60px; background: var(--pink); transform: rotate(14deg); top: 320px; left: 7%; }
+    .s3 { width: 48px; height: 48px; border-radius: 12px; background: var(--cyan); bottom: 80px; right: 11%; transform: rotate(-10deg); }
+    header, main, footer { position: relative; z-index: 2; }
+    header {
+      border-bottom: 2px solid #000;
+      background: rgba(255, 249, 239, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .brand img { height: 44px; width: auto; }
+    .back-link {
+      text-decoration: none;
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: #fff;
+      padding: 9px 14px;
+      color: #111;
+      font-weight: 700;
+      box-shadow: 4px 4px 0 #000;
+    }
+    .doc {
+      margin: 36px auto 56px;
+      background: var(--paper);
+      border: 3px solid #000;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 4vw, 36px);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+    h2 {
+      margin: 24px 0 8px;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+    p, li { color: #32374d; }
+    ul { padding-left: 20px; }
+    footer {
+      border-top: 2px solid #000;
+      background: #fff2d6;
+      padding: 22px 0 34px;
+      color: #252a3c;
+    }
+    footer a { color: #1f3db5; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <span class="shape s1" aria-hidden="true"></span>
+  <span class="shape s2" aria-hidden="true"></span>
+  <span class="shape s3" aria-hidden="true"></span>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="./index.html">
+        <img src="./Assets/logo.png" alt="Mockup Kit logo">
+        <span>Mockup Kit</span>
+      </a>
+      <a class="back-link" href="./index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="doc">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective date:</strong> July 4, 2026</p>
+      <p>This Privacy Policy explains how Damas Technologies handles information when you use Mockup Kit.</p>
+
+      <h2>1. Information We Collect</h2>
+      <p>Mockup Kit is designed to minimize data collection. We may collect only the information necessary for app functionality, billing through app marketplaces, and support communication.</p>
+
+      <h2>2. How We Use Information</h2>
+      <ul>
+        <li>To provide and improve Mockup Kit features.</li>
+        <li>To process subscriptions and purchases through authorized platforms.</li>
+        <li>To respond to support requests sent to our contact email.</li>
+      </ul>
+
+      <h2>3. Project Files and Content</h2>
+      <p>Your design assets and exported files remain under your control. Unless explicitly shared with us for support, we do not access your local project files.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>Payments and subscription management may be handled by third-party storefronts or payment providers according to their own privacy terms.</p>
+
+      <h2>5. Data Retention</h2>
+      <p>We retain only necessary support and operational data for as long as required for legitimate business or legal purposes.</p>
+
+      <h2>6. Security</h2>
+      <p>We apply reasonable safeguards to protect information in our control. No method of storage or transmission is guaranteed to be 100% secure.</p>
+
+      <h2>7. Your Rights</h2>
+      <p>Depending on your location, you may have rights to request access, correction, or deletion of personal information we hold.</p>
+
+      <h2>8. Policy Updates</h2>
+      <p>We may update this policy periodically. Continued use of Mockup Kit after updates indicates acceptance of the revised policy.</p>
+
+      <h2>9. Contact</h2>
+      <p>For privacy questions, contact <a href="mailto:hi@damastechnologies.com">hi@damastechnologies.com</a>.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <p><a href="./terms-of-use.html">Terms of Use</a> · <a href="./privacy-policy.html">Privacy Policy</a></p>
+      <p>© 2026 Damas Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

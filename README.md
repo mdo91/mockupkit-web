@@ -8,8 +8,16 @@ Marketing website for **Mockup Kit** (macOS app for App Store screenshot mockups
 - `support.html` - support/help page
 - `terms-of-use.html` - legal terms
 - `privacy-policy.html` - privacy policy
+- `blog/` - blog index and SEO posts (clean folder URLs)
 - `Assets/` - logo, screenshots, and App Store badge assets
 - `.github/workflows/deploy-pages.yml` - GitHub Pages deployment workflow
+
+### Blog routes
+
+- `/blog/`
+- `/blog/how-to-make-app-store-screenshots-on-mac/`
+- `/blog/best-app-store-screenshot-backgrounds-and-gradients/`
+- `/blog/app-store-screenshot-workflow-for-indie-developers/`
 
 ## Local Preview
 

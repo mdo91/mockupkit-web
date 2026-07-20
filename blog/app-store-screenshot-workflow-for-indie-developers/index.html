@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Store Screenshot Workflow for Indie Developers | Mockup Kit</title>
+  <meta name="description" content="A fast App Store screenshot workflow for indie developers on Mac: overlays, multi-size exports, Store Mockup vs Rounded Image, and when to skip Figma.">
+  <link rel="canonical" href="https://mockupkits.com/blog/app-store-screenshot-workflow-for-indie-developers/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="App Store Screenshot Workflow for Indie Developers | Mockup Kit">
+  <meta property="og:description" content="A fast App Store screenshot workflow for indie developers on Mac: overlays, multi-size exports, Store Mockup vs Rounded Image, and when to skip Figma.">
+  <meta property="og:url" content="https://mockupkits.com/blog/app-store-screenshot-workflow-for-indie-developers/">
+  <meta property="og:image" content="https://mockupkits.com/Assets/asset-1.png">
+  <meta property="og:site_name" content="Mockup Kit">
+  <style>
+    :root {
+      --page: #fff9ef; --paper: #ffffff; --ink: #111317; --muted: #545a6a;
+      --pink: #ff79ba; --cyan: #69dbff; --yellow: #ffd95a; --mint: #8df0cb;
+      --line: #121212; --max: 980px; --shadow: 6px 6px 0 #000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--page); color: var(--ink); line-height: 1.7; letter-spacing: 0.01em;
+    }
+    .skip-link { position: absolute; top: -40px; left: 8px; background: #111; color: #fff; padding: 8px 12px; border-radius: 10px; z-index: 1000; }
+    .skip-link:focus { top: 8px; }
+    .pattern {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.4;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(158, 82, 245, 0.14) 2px, transparent 3px) 0 0 / 28px 28px,
+        linear-gradient(90deg, transparent 0 96%, rgba(0, 0, 0, 0.04) 96% 100%) 0 0 / 46px 46px;
+    }
+    .shape { position: fixed; z-index: 0; border: 2px solid #000; box-shadow: 4px 4px 0 #000; pointer-events: none; }
+    .s1 { width: 56px; height: 56px; border-radius: 50%; background: var(--yellow); top: 100px; right: 9%; }
+    .s2 { width: 60px; height: 60px; background: var(--mint); transform: rotate(14deg); top: 320px; left: 7%; }
+    .s3 { width: 48px; height: 48px; border-radius: 12px; background: var(--pink); bottom: 80px; right: 11%; transform: rotate(-10deg); }
+    header, main, footer { position: relative; z-index: 2; }
+    header { border-bottom: 2px solid #000; background: rgba(255, 249, 239, 0.92); backdrop-filter: blur(8px); }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-weight: 800; }
+    .brand img { height: 44px; width: auto; }
+    .back-link {
+      text-decoration: none; border: 2px solid #000; border-radius: 999px; background: #fff;
+      padding: 9px 14px; color: #111; font-weight: 700; box-shadow: 4px 4px 0 #000;
+    }
+    .doc {
+      margin: 36px auto 56px; background: var(--paper); border: 3px solid #000;
+      border-radius: 22px; box-shadow: var(--shadow); padding: clamp(20px, 4vw, 36px);
+    }
+    .prose { max-width: 68ch; }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.08; letter-spacing: -0.03em; }
+    .meta { margin: 0 0 20px; color: var(--muted); font-size: 0.95rem; font-weight: 600; }
+    h2 { margin: 32px 0 10px; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { margin: 20px 0 8px; font-size: 1.1rem; }
+    p, li { color: #32374d; }
+    p { margin: 0 0 14px; }
+    ul, ol { padding-left: 22px; margin: 0 0 16px; }
+    li { margin-bottom: 8px; }
+    .shot {
+      margin: 20px 0; border: 2px solid #000; border-radius: 14px; overflow: hidden;
+      box-shadow: 4px 4px 0 #000; background: #fff;
+    }
+    .shot img { display: block; width: 100%; }
+    .cta {
+      margin-top: 28px; border: 2px solid #000; border-radius: 16px; background: linear-gradient(120deg, #fff3ce, #ffc2df 40%, #9ce7ff);
+      padding: 18px; box-shadow: 4px 4px 0 #000;
+    }
+    .cta .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 12px; }
+    .store-badge { display: inline-block; line-height: 0; }
+    .store-badge img { height: 48px; width: auto; display: block; }
+    .ghost {
+      text-decoration: none; border: 2px solid #000; border-radius: 999px; background: #fff;
+      color: #111; font-weight: 800; padding: 10px 16px; box-shadow: 4px 4px 0 #000;
+    }
+    .related { margin-top: 28px; padding-top: 18px; border-top: 2px solid #eee; }
+    a { color: #1f3db5; }
+    a:focus-visible, .back-link:focus-visible, .ghost:focus-visible {
+      outline: 3px solid #2f4bd8; outline-offset: 3px;
+    }
+    footer { border-top: 2px solid #000; background: #fff2d6; padding: 22px 0 34px; color: #252a3c; }
+    footer a { color: #1f3db5; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "App Store Screenshot Workflow for Indie Developers",
+    "description": "A fast App Store screenshot workflow for indie developers on Mac: overlays, multi-size exports, Store Mockup vs Rounded Image, and when to skip Figma.",
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20",
+    "author": { "@type": "Organization", "name": "Damas Technologies" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Damas Technologies",
+      "logo": { "@type": "ImageObject", "url": "https://mockupkits.com/Assets/logo.png" }
+    },
+    "image": ["https://mockupkits.com/Assets/asset-1.png"],
+    "mainEntityOfPage": "https://mockupkits.com/blog/app-store-screenshot-workflow-for-indie-developers/",
+    "url": "https://mockupkits.com/blog/app-store-screenshot-workflow-for-indie-developers/"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <span class="shape s1" aria-hidden="true"></span>
+  <span class="shape s2" aria-hidden="true"></span>
+  <span class="shape s3" aria-hidden="true"></span>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html">
+        <img src="../../Assets/logo.png" alt="Mockup Kit logo">
+        <span>Mockup Kit</span>
+      </a>
+      <a class="back-link" href="../">All posts</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="doc prose">
+      <h1>App Store Screenshot Workflow for Indie Developers</h1>
+      <p class="meta">July 20, 2026 · ~9 min read</p>
+
+      <p>Indie developers rarely lack ideas. They lack hours. Screenshot sets still need to ship with every meaningful release, and opening a sprawling Figma or Photoshop file for five marketing frames can eat an evening. A tighter App Store screenshot workflow keeps release day focused on the product, not the polish pipeline.</p>
+      <p>This post outlines a practical weekly process for indie iOS and macOS shippers: capture, compose with overlays, batch export for multiple iPhone sizes, and choose Store Mockup vs Rounded Image intentionally. For foundation steps, read <a href="../how-to-make-app-store-screenshots-on-mac/">How to Make App Store Screenshots on Mac</a>. For color decisions, see <a href="../best-app-store-screenshot-backgrounds-and-gradients/">Best App Store Screenshot Backgrounds and Gradients</a>.</p>
+
+      <h2>A fast weekly workflow for indie shippers</h2>
+      <p>Treat screenshots like release notes: update them when the product story changes, not when boredom strikes. A lightweight cadence looks like this:</p>
+      <ol>
+        <li><strong>Monday or after merge.</strong> Capture 4–8 clean screens that map to your current value props.</li>
+        <li><strong>Same day.</strong> Drop captures into Mockup Kit Store Mockup, lock a background system, write short headlines.</li>
+        <li><strong>Add one overlay max per frame</strong> when a badge clarifies a benefit.</li>
+        <li><strong>Export the sizes you need</strong> (6.9″, 6.7″, 6.5″, 6.3″, 6.1″ as required), then archive a dated folder.</li>
+        <li><strong>Upload in App Store Connect</strong> with the build that actually matches the UI.</li>
+      </ol>
+      <p>Keep a simple checklist in your release notes template so screenshots are never a surprise task the night before review.</p>
+
+      <figure class="shot">
+        <img src="../../Assets/asset-1.png" loading="lazy" alt="Mockup Kit Store Mockup workspace used in an indie App Store screenshot workflow">
+      </figure>
+
+      <h2>Using overlays for badges and callouts</h2>
+      <p>Overlay layers help when the UI alone under-communicates. Drag badges or artwork onto the canvas and position them where the eye already lands — near the headline or a primary control — not randomly in corners.</p>
+      <ul>
+        <li>Use overlays for proof points: “Works Offline,” “No Account,” “Privacy First.”</li>
+        <li>Keep typography on overlays short; the main headline still owns the message.</li>
+        <li>Reuse the same badge style across the set so callouts feel branded, not sticker-bombed.</li>
+      </ul>
+      <p>If every screenshot needs three overlays, the underlying captures may be weak. Fix the source screen first.</p>
+
+      <h2>Batching exports for multiple iPhone sizes</h2>
+      <p>Indie teams lose time re-exporting one size at a time without a checklist. After composition is approved:</p>
+      <ul>
+        <li>Export each required App Store Connect size in one sitting.</li>
+        <li>Name files by size and story order (<code>01-overview-69.png</code>, <code>02-feature-67.png</code>).</li>
+        <li>Spot-check the largest and smallest exports for type wrapping and title collisions.</li>
+      </ul>
+      <p>Mockup Kit’s Store Mockup exports are aligned with App Store Connect sizes for 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″. Confirm Apple’s current requirements for your listing before you upload.</p>
+
+      <figure class="shot">
+        <img src="../../Assets/asset-2.png" loading="lazy" alt="Mockup Kit preview showing overlays suitable for indie App Store marketing screenshots">
+      </figure>
+
+      <h2>When to use Rounded Image vs Store Mockup</h2>
+      <p><strong>Store Mockup</strong> is the default for App Store marketing frames: screenshot + headline + background + optional overlays, exported at listing sizes. Use it whenever you need product-page screenshots.</p>
+      <p><strong>Rounded Image</strong> is for polishing a single image with corner radius in pixels or percentage, then exporting PNG quickly. Use it when you need a rounded asset for a website, press kit, or social crop — not as a substitute for full Store Mockup compositions.</p>
+      <ul>
+        <li>Shipping App Store screenshots → Store Mockup.</li>
+        <li>Need a clean rounded PNG from an existing image → Rounded Image.</li>
+        <li>Need both → finish Store Mockup first, then round secondary assets if required.</li>
+      </ul>
+
+      <h2>Time-saving tips vs Figma or Photoshop</h2>
+      <p>Figma and Photoshop remain excellent for brand systems, illustration, and complex marketing sites. For many indie screenshot updates, they are heavier than the job:</p>
+      <ul>
+        <li>Opening a large design file for five frames adds startup and decision cost.</li>
+        <li>Rebuilding export presets for every iPhone size invites mistakes.</li>
+        <li>A dedicated Mac workflow (import → compose → export) keeps context switching low.</li>
+      </ul>
+      <p>Use design tools when you are inventing a new visual language. Use Mockup Kit when you already know the language and need shipping-speed updates. Features and pricing are summarized on the <a href="../../index.html#features">homepage</a> — including a 3-day free trial, then $1.99/month or $9.99 lifetime.</p>
+
+      <h2>Indie checklist before you hit Submit</h2>
+      <ul>
+        <li>Headlines match the build you are submitting.</li>
+        <li>Background system is consistent across the set.</li>
+        <li>Overlays are sparse and readable.</li>
+        <li>All required sizes exported and named clearly.</li>
+        <li>No pure white/black empty canvases or neon experiments unless they are truly on-brand.</li>
+      </ul>
+
+      <div class="cta">
+        <h2 style="margin-top:0;">Ship screenshot updates without slowing your release</h2>
+        <p style="margin-bottom:0;">Mockup Kit keeps Store Mockup, overlays, Rounded Image, and App Store–aligned exports on your Mac. Try free for 3 days.</p>
+        <div class="actions">
+          <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
+            <img src="../../Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+          </a>
+          <a class="ghost" href="../../index.html">Try Free for 3 Days</a>
+        </div>
+      </div>
+
+      <div class="related">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="../how-to-make-app-store-screenshots-on-mac/">How to Make App Store Screenshots on Mac</a></li>
+          <li><a href="../best-app-store-screenshot-backgrounds-and-gradients/">Best App Store Screenshot Backgrounds and Gradients</a></li>
+          <li><a href="../../support.html">Support</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <p><a href="../../support.html">Support</a> · <a href="../">Blog</a> · <a href="../../terms-of-use.html">Terms of Use</a> · <a href="../../privacy-policy.html">Privacy Policy</a></p>
+      <p>© 2026 Damas Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

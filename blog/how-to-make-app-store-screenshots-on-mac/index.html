@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Make App Store Screenshots on Mac | Mockup Kit</title>
+  <meta name="description" content="Learn how to make App Store screenshots on Mac with the right sizes for App Store Connect, plus a clear Mockup Kit workflow from import to export.">
+  <link rel="canonical" href="https://mockupkits.com/blog/how-to-make-app-store-screenshots-on-mac/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Make App Store Screenshots on Mac | Mockup Kit">
+  <meta property="og:description" content="Learn how to make App Store screenshots on Mac with the right sizes for App Store Connect, plus a clear Mockup Kit workflow from import to export.">
+  <meta property="og:url" content="https://mockupkits.com/blog/how-to-make-app-store-screenshots-on-mac/">
+  <meta property="og:image" content="https://mockupkits.com/Assets/asset-1.png">
+  <meta property="og:site_name" content="Mockup Kit">
+  <style>
+    :root {
+      --page: #fff9ef; --paper: #ffffff; --ink: #111317; --muted: #545a6a;
+      --pink: #ff79ba; --cyan: #69dbff; --yellow: #ffd95a; --mint: #8df0cb;
+      --line: #121212; --max: 980px; --shadow: 6px 6px 0 #000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--page); color: var(--ink); line-height: 1.7; letter-spacing: 0.01em;
+    }
+    .skip-link { position: absolute; top: -40px; left: 8px; background: #111; color: #fff; padding: 8px 12px; border-radius: 10px; z-index: 1000; }
+    .skip-link:focus { top: 8px; }
+    .pattern {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.4;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(158, 82, 245, 0.14) 2px, transparent 3px) 0 0 / 28px 28px,
+        linear-gradient(90deg, transparent 0 96%, rgba(0, 0, 0, 0.04) 96% 100%) 0 0 / 46px 46px;
+    }
+    .shape { position: fixed; z-index: 0; border: 2px solid #000; box-shadow: 4px 4px 0 #000; pointer-events: none; }
+    .s1 { width: 56px; height: 56px; border-radius: 50%; background: var(--pink); top: 100px; right: 9%; }
+    .s2 { width: 60px; height: 60px; background: var(--cyan); transform: rotate(14deg); top: 320px; left: 7%; }
+    .s3 { width: 48px; height: 48px; border-radius: 12px; background: var(--yellow); bottom: 80px; right: 11%; transform: rotate(-10deg); }
+    header, main, footer { position: relative; z-index: 2; }
+    header { border-bottom: 2px solid #000; background: rgba(255, 249, 239, 0.92); backdrop-filter: blur(8px); }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-weight: 800; }
+    .brand img { height: 44px; width: auto; }
+    .back-link {
+      text-decoration: none; border: 2px solid #000; border-radius: 999px; background: #fff;
+      padding: 9px 14px; color: #111; font-weight: 700; box-shadow: 4px 4px 0 #000;
+    }
+    .doc {
+      margin: 36px auto 56px; background: var(--paper); border: 3px solid #000;
+      border-radius: 22px; box-shadow: var(--shadow); padding: clamp(20px, 4vw, 36px);
+    }
+    .prose { max-width: 68ch; }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.08; letter-spacing: -0.03em; }
+    .meta { margin: 0 0 20px; color: var(--muted); font-size: 0.95rem; font-weight: 600; }
+    h2 { margin: 32px 0 10px; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { margin: 20px 0 8px; font-size: 1.1rem; }
+    p, li { color: #32374d; }
+    p { margin: 0 0 14px; }
+    ul, ol { padding-left: 22px; margin: 0 0 16px; }
+    li { margin-bottom: 8px; }
+    .shot {
+      margin: 20px 0; border: 2px solid #000; border-radius: 14px; overflow: hidden;
+      box-shadow: 4px 4px 0 #000; background: #fff;
+    }
+    .shot img { display: block; width: 100%; }
+    .cta {
+      margin-top: 28px; border: 2px solid #000; border-radius: 16px; background: linear-gradient(120deg, #fff3ce, #ffc2df 40%, #9ce7ff);
+      padding: 18px; box-shadow: 4px 4px 0 #000;
+    }
+    .cta .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 12px; }
+    .store-badge { display: inline-block; line-height: 0; }
+    .store-badge img { height: 48px; width: auto; display: block; }
+    .ghost {
+      text-decoration: none; border: 2px solid #000; border-radius: 999px; background: #fff;
+      color: #111; font-weight: 800; padding: 10px 16px; box-shadow: 4px 4px 0 #000;
+    }
+    .related { margin-top: 28px; padding-top: 18px; border-top: 2px solid #eee; }
+    a { color: #1f3db5; }
+    a:focus-visible, .back-link:focus-visible, .ghost:focus-visible {
+      outline: 3px solid #2f4bd8; outline-offset: 3px;
+    }
+    footer { border-top: 2px solid #000; background: #fff2d6; padding: 22px 0 34px; color: #252a3c; }
+    footer a { color: #1f3db5; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Make App Store Screenshots on Mac",
+    "description": "Learn how to make App Store screenshots on Mac with the right sizes for App Store Connect, plus a clear Mockup Kit workflow from import to export.",
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20",
+    "author": { "@type": "Organization", "name": "Damas Technologies" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Damas Technologies",
+      "logo": { "@type": "ImageObject", "url": "https://mockupkits.com/Assets/logo.png" }
+    },
+    "image": ["https://mockupkits.com/Assets/asset-1.png"],
+    "mainEntityOfPage": "https://mockupkits.com/blog/how-to-make-app-store-screenshots-on-mac/",
+    "url": "https://mockupkits.com/blog/how-to-make-app-store-screenshots-on-mac/"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <span class="shape s1" aria-hidden="true"></span>
+  <span class="shape s2" aria-hidden="true"></span>
+  <span class="shape s3" aria-hidden="true"></span>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html">
+        <img src="../../Assets/logo.png" alt="Mockup Kit logo">
+        <span>Mockup Kit</span>
+      </a>
+      <a class="back-link" href="../">All posts</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="doc prose">
+      <h1>How to Make App Store Screenshots on Mac</h1>
+      <p class="meta">July 20, 2026 · ~8 min read</p>
+
+      <p>If you ship iOS apps, App Store screenshots are often the first product pitch a shopper sees. They sit above the fold on product pages, appear in search results, and do more conversion work than a long description. The good news: you do not need a full design studio to produce clean, on-spec marketing screenshots on a Mac.</p>
+      <p>This guide covers why screenshots matter, which sizes App Store Connect expects, a practical Mockup Kit workflow, and the mistakes that quietly tank listings. If you want backgrounds and gradients in more depth, see <a href="../best-app-store-screenshot-backgrounds-and-gradients/">Best App Store Screenshot Backgrounds and Gradients</a>. For a weekly indie shipping cadence, read <a href="../app-store-screenshot-workflow-for-indie-developers/">App Store Screenshot Workflow for Indie Developers</a>.</p>
+
+      <h2>Why App Store screenshots matter for conversion</h2>
+      <p>Most visitors decide whether to keep scrolling in a few seconds. Screenshots answer the silent questions: What does the app look like? What is it for? Why should I trust it?</p>
+      <ul>
+        <li><strong>Clarity beats cleverness.</strong> A readable UI plus a short headline usually outperforms abstract art.</li>
+        <li><strong>Consistency builds trust.</strong> Matching colors, typography, and framing across a set feels intentional.</li>
+        <li><strong>Size compliance avoids rework.</strong> Wrong dimensions force last-minute crops and delayed submissions.</li>
+      </ul>
+      <p>Treat screenshots as a product surface, not decoration. Plan the story sequence (problem → feature → outcome) the same way you plan onboarding.</p>
+
+      <h2>Required screenshot sizes for App Store Connect</h2>
+      <p>Apple’s requirements change over time, but iPhone marketing screenshots are commonly prepared for these display sizes. Mockup Kit’s Store Mockup export sizes are aligned with App Store Connect for:</p>
+      <ul>
+        <li>6.9″</li>
+        <li>6.7″</li>
+        <li>6.5″</li>
+        <li>6.3″</li>
+        <li>6.1″</li>
+      </ul>
+      <p>Export the sizes you actually need for the devices you support. If you only ship one primary set, start with the largest required size your listing needs and verify the others before upload. Always double-check App Store Connect’s current requirements for your app’s categories and device families before you submit.</p>
+
+      <h2>Step-by-step: App Store screenshots on Mac with Mockup Kit</h2>
+      <p>Mockup Kit is a native macOS app for composing App Store marketing screenshots. The core Store Mockup flow is intentionally short: import, background, headline, position, export.</p>
+
+      <figure class="shot">
+        <img src="../../Assets/asset-1.png" loading="lazy" alt="Mockup Kit Store Mockup canvas showing an App Store screenshot layout on Mac">
+      </figure>
+
+      <h3>1. Import your iPhone screenshot</h3>
+      <p>Capture the screen on device (or from Simulator), then bring that PNG/JPEG into Mockup Kit. Prefer a clean capture with no status-bar clutter you do not want to show. If the UI is dark, plan a lighter background later for contrast — and the reverse for light UI.</p>
+
+      <h3>2. Choose a solid or gradient background</h3>
+      <p>Use a solid color when you want calm focus, or a gradient when you want gentle depth. Stick to a few brand colors. Loud neon backgrounds fight the device UI and look dated next to App Store chrome. For detailed color guidance, see our <a href="../best-app-store-screenshot-backgrounds-and-gradients/">backgrounds and gradients guide</a>.</p>
+
+      <h3>3. Add a short headline</h3>
+      <p>Write one benefit-focused line, then adjust title font, color, and size so it remains readable at thumbnail scale. Avoid long sentences. Aim for meaning in under about eight words when you can.</p>
+
+      <h3>4. Position the screenshot, title, and overlays</h3>
+      <p>Drag the screenshot and title into a balanced composition. Add overlay layers for badges or artwork when a callout helps (for example “Offline Mode” or “No Account Required”). Keep overlays sparse — one strong callout beats three competing stickers.</p>
+
+      <h3>5. Export PNG or JPEG at the right canvas size</h3>
+      <p>Export for each needed iPhone size. PNG is usually best when you need crisp edges; JPEG can help when file size matters. Upload in App Store Connect and preview how the set reads as a sequence.</p>
+
+      <figure class="shot">
+        <img src="../../Assets/asset-2.png" loading="lazy" alt="Mockup Kit preview with overlays and export-ready App Store screenshot composition">
+      </figure>
+
+      <h2>Common mistakes to avoid</h2>
+      <ul>
+        <li><strong>Pure white or pure black backgrounds.</strong> They look unfinished and hide light or dark UI edges.</li>
+        <li><strong>Weak headlines.</strong> Feature names without benefits (“Dashboard”) underperform clear outcomes (“Track spending in seconds”).</li>
+        <li><strong>Wrong sizes.</strong> Stretching a single canvas for every device creates soft UI or rejected assets.</li>
+        <li><strong>Too much decoration.</strong> Heavy patterns and stacked badges make the product harder to understand.</li>
+        <li><strong>Inconsistent framing.</strong> Mixed margins and type sizes across screenshots make the set feel accidental.</li>
+      </ul>
+
+      <h2>FAQ</h2>
+      <h3>Do I need Figma or Photoshop to make App Store screenshots on Mac?</h3>
+      <p>Not for straightforward marketing sets. If you already have clean iPhone captures, a focused tool like Mockup Kit can cover background, headline, overlays, and on-spec export without a full design file.</p>
+      <h3>Which iPhone sizes should I export first?</h3>
+      <p>Export the sizes App Store Connect requires for your listing. Mockup Kit supports 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″. Confirm the current Connect checklist for your app before you finalize.</p>
+      <h3>Should I use PNG or JPEG?</h3>
+      <p>Use PNG when sharpness matters most. Use JPEG when you need smaller files and soft gradients dominate the frame. Keep the format consistent within a set when you can.</p>
+      <h3>How many screenshots should I ship?</h3>
+      <p>Ship enough to tell a clear story — often five to eight — without repeating the same idea. Lead with the strongest benefit screenshot.</p>
+      <h3>Can I try Mockup Kit before paying?</h3>
+      <p>Yes. Mockup Kit includes a 3-day free trial, then $1.99/month or $9.99 lifetime. See <a href="../../index.html#pricing">pricing on the homepage</a>.</p>
+
+      <div class="cta">
+        <h2 style="margin-top:0;">Ready to make App Store screenshots on Mac?</h2>
+        <p style="margin-bottom:0;">Compose, position, and export iPhone mockups without leaving your Mac. Free trial for 3 days.</p>
+        <div class="actions">
+          <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
+            <img src="../../Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+          </a>
+          <a class="ghost" href="../../index.html">Try Free for 3 Days</a>
+        </div>
+      </div>
+
+      <div class="related">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="../best-app-store-screenshot-backgrounds-and-gradients/">Best App Store Screenshot Backgrounds and Gradients</a></li>
+          <li><a href="../app-store-screenshot-workflow-for-indie-developers/">App Store Screenshot Workflow for Indie Developers</a></li>
+          <li><a href="../../index.html#features">Mockup Kit features</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <p><a href="../../support.html">Support</a> · <a href="../">Blog</a> · <a href="../../terms-of-use.html">Terms of Use</a> · <a href="../../privacy-policy.html">Privacy Policy</a></p>
+      <p>© 2026 Damas Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — App Store Screenshot Tips | Mockup Kit</title>
+  <meta name="description" content="Practical guides for App Store screenshots on Mac: sizes, backgrounds, gradients, overlays, and indie developer workflows with Mockup Kit.">
+  <link rel="canonical" href="https://mockupkits.com/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog — App Store Screenshot Tips | Mockup Kit">
+  <meta property="og:description" content="Practical guides for App Store screenshots on Mac: sizes, backgrounds, gradients, overlays, and indie developer workflows.">
+  <meta property="og:url" content="https://mockupkits.com/blog/">
+  <meta property="og:image" content="https://mockupkits.com/Assets/logo.png">
+  <meta property="og:site_name" content="Mockup Kit">
+  <style>
+    :root {
+      --page: #fff9ef;
+      --paper: #ffffff;
+      --ink: #111317;
+      --muted: #545a6a;
+      --pink: #ff79ba;
+      --cyan: #69dbff;
+      --yellow: #ffd95a;
+      --mint: #8df0cb;
+      --line: #121212;
+      --max: 980px;
+      --shadow: 6px 6px 0 #000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 8px;
+      background: #111;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 8px; }
+    .pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(158, 82, 245, 0.14) 2px, transparent 3px) 0 0 / 28px 28px,
+        linear-gradient(90deg, transparent 0 96%, rgba(0, 0, 0, 0.04) 96% 100%) 0 0 / 46px 46px;
+      opacity: 0.4;
+    }
+    .shape {
+      position: fixed;
+      z-index: 0;
+      border: 2px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      pointer-events: none;
+    }
+    .s1 { width: 56px; height: 56px; border-radius: 50%; background: var(--cyan); top: 100px; right: 9%; }
+    .s2 { width: 60px; height: 60px; background: var(--yellow); transform: rotate(14deg); top: 320px; left: 7%; }
+    .s3 { width: 48px; height: 48px; border-radius: 12px; background: var(--mint); bottom: 80px; right: 11%; transform: rotate(-10deg); }
+    header, main, footer { position: relative; z-index: 2; }
+    header {
+      border-bottom: 2px solid #000;
+      background: rgba(255, 249, 239, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .brand img { height: 44px; width: auto; }
+    .back-link {
+      text-decoration: none;
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: #fff;
+      padding: 9px 14px;
+      color: #111;
+      font-weight: 700;
+      box-shadow: 4px 4px 0 #000;
+    }
+    .doc {
+      margin: 36px auto 56px;
+      background: var(--paper);
+      border: 3px solid #000;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 4vw, 36px);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+    .lead { color: var(--muted); margin: 0 0 28px; max-width: 65ch; }
+    .posts { display: grid; gap: 16px; }
+    .post-card {
+      border: 2px solid #000;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #fff, #fffaf1);
+      box-shadow: 4px 4px 0 #000;
+      padding: 18px;
+    }
+    .post-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .post-card h2 a { color: var(--ink); text-decoration: none; }
+    .post-card h2 a:hover { text-decoration: underline; }
+    .meta { margin: 0 0 10px; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+    .excerpt { margin: 0 0 14px; color: #32374d; }
+    .read-link {
+      display: inline-block;
+      text-decoration: none;
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: var(--mint);
+      color: #111;
+      font-weight: 800;
+      padding: 8px 14px;
+      box-shadow: 3px 3px 0 #000;
+    }
+    a { color: #1f3db5; }
+    a:focus-visible, .back-link:focus-visible, .read-link:focus-visible {
+      outline: 3px solid #2f4bd8;
+      outline-offset: 3px;
+    }
+    footer {
+      border-top: 2px solid #000;
+      background: #fff2d6;
+      padding: 22px 0 34px;
+      color: #252a3c;
+    }
+    footer a { color: #1f3db5; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Mockup Kit Blog",
+    "url": "https://mockupkits.com/blog/",
+    "description": "Practical guides for App Store screenshots on Mac.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Damas Technologies",
+      "url": "https://mockupkits.com/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <span class="shape s1" aria-hidden="true"></span>
+  <span class="shape s2" aria-hidden="true"></span>
+  <span class="shape s3" aria-hidden="true"></span>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">
+        <img src="../Assets/logo.png" alt="Mockup Kit logo">
+        <span>Mockup Kit</span>
+      </a>
+      <a class="back-link" href="../index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="doc">
+      <h1>Blog</h1>
+      <p class="lead">Practical guides for App Store screenshots on Mac — sizes, backgrounds, overlays, and shipping workflows for indie teams.</p>
+      <div class="posts">
+        <article class="post-card">
+          <h2><a href="./how-to-make-app-store-screenshots-on-mac/">How to Make App Store Screenshots on Mac</a></h2>
+          <p class="meta">July 20, 2026</p>
+          <p class="excerpt">A clear Mac workflow for App Store Connect–ready screenshot sizes: import, background, headline, position, and export without leaving your Mac.</p>
+          <a class="read-link" href="./how-to-make-app-store-screenshots-on-mac/">Read post</a>
+        </article>
+        <article class="post-card">
+          <h2><a href="./best-app-store-screenshot-backgrounds-and-gradients/">Best App Store Screenshot Backgrounds and Gradients</a></h2>
+          <p class="meta">July 20, 2026</p>
+          <p class="excerpt">Solid vs gradient backgrounds for App Store listings, color families that stay premium, and how to dial contrast so device UI stays readable.</p>
+          <a class="read-link" href="./best-app-store-screenshot-backgrounds-and-gradients/">Read post</a>
+        </article>
+        <article class="post-card">
+          <h2><a href="./app-store-screenshot-workflow-for-indie-developers/">App Store Screenshot Workflow for Indie Developers</a></h2>
+          <p class="meta">July 20, 2026</p>
+          <p class="excerpt">A fast weekly process for indie shippers: overlays, multi-size exports, Store Mockup vs Rounded Image, and when not to open Figma.</p>
+          <a class="read-link" href="./app-store-screenshot-workflow-for-indie-developers/">Read post</a>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <p><a href="../support.html">Support</a> · <a href="./">Blog</a> · <a href="../terms-of-use.html">Terms of Use</a> · <a href="../privacy-policy.html">Privacy Policy</a></p>
+      <p>© 2026 Damas Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

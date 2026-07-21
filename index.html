@@ -143,7 +143,7 @@
     .store-badge { display: inline-block; line-height: 0; }
     .store-badge img { height: 48px; width: auto; display: block; }
     main { position: relative; z-index: 2; }
-    .hero { padding: clamp(64px, 10vw, 104px) 0 80px; }
+    .hero { padding: clamp(64px, 10vw, 104px) 0 clamp(32px, 5vw, 48px); }
     .hero-card {
       background: var(--paper);
       border: 3px solid #000;
@@ -227,6 +227,37 @@
       transform: rotate(-1.2deg);
     }
     .mock img { width: 100%; height: auto; display: block; }
+    .demo-section { padding: 0 0 clamp(56px, 8vw, 96px); }
+    .demo-steps {
+      margin: 18px 0 0;
+      padding-left: 1.2rem;
+      color: #464d62;
+      max-width: 72ch;
+    }
+    .demo-steps li { margin-bottom: 6px; }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 3px solid #000;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #111;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 700;
+      color: #1f3db5;
+    }
     .section { padding: clamp(72px, 9vw, 108px) 0; }
     .panel {
       background: var(--paper);
@@ -450,6 +481,15 @@
             }
           }
         ]
+      },
+      {
+        "@type": "VideoObject",
+        "name": "How to Create App Store Screenshots on Mac with Mockup Kit",
+        "description": "Watch the full Mockup Kit workflow: add a screenshot to the canvas, pick a gradient background, add a title, place PNG overlay images, and export the final App Store screenshot on Mac.",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/cNImnmTI0W8",
+        "contentUrl": "https://www.youtube.com/watch?v=cNImnmTI0W8",
+        "thumbnailUrl": "https://i.ytimg.com/vi/cNImnmTI0W8/hqdefault.jpg",
+        "publisher": { "@id": "https://mockupkits.com/#organization" }
       }
     ]
   }
@@ -471,6 +511,7 @@
       </a>
       <nav aria-label="Main navigation">
         <ul>
+          <li><a href="#demo">Demo</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#proof">Proof</a></li>
           <li><a href="./blog/">Blog</a></li>
@@ -506,6 +547,30 @@
             <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
           </figure>
         </article>
+      </div>
+    </section>
+
+    <section class="demo-section" id="demo" aria-labelledby="demo-heading">
+      <div class="wrap panel">
+        <h2 id="demo-heading">See it in action</h2>
+        <p class="sub">Watch how to build an App Store screenshot on Mac — from canvas import to export-ready mockup.</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/cNImnmTI0W8"
+            title="Mockup Kit demo: create App Store screenshots on Mac with gradient background, title, overlays, and export"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <ol class="demo-steps">
+          <li>Add your App Store screenshot to the Mockup Kit canvas</li>
+          <li>Select a gradient background</li>
+          <li>Add a headline title</li>
+          <li>Place PNG overlay images on the screenshot</li>
+          <li>Export the final App Store-ready result</li>
+        </ol>
+        <a class="video-link" href="https://www.youtube.com/watch?v=cNImnmTI0W8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </div>
     </section>
 

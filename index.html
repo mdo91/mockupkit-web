@@ -178,6 +178,27 @@
       flex-wrap: wrap;
       align-items: center;
     }
+    .hero-pricing {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .trial-chip {
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: var(--yellow);
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
     .ghost {
       text-decoration: none;
       border: 2px solid #000;
@@ -273,6 +294,14 @@
       color: #111;
     }
     .cta-box h2 { margin-top: 0; }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0 auto 16px;
+    }
     .chips {
       margin-top: 14px;
       display: flex;
@@ -439,9 +468,12 @@
           <li><a href="#pricing">Pricing</a></li>
         </ul>
       </nav>
-      <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
-        <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
-      </a>
+      <div class="header-cta">
+        <span class="trial-chip">3-day free trial</span>
+        <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
+          <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+        </a>
+      </div>
     </div>
   </header>
 
@@ -459,6 +491,7 @@
               </a>
               <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try Free for 3 Days</a>
             </div>
+            <p class="hero-pricing">3-day free trial, then $1.99/month or $9.99 lifetime.</p>
           </div>
           <figure class="mock">
             <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
@@ -548,8 +581,14 @@
     <section class="section" id="pricing">
       <div class="wrap">
         <div class="cta-box">
-          <h2>App Store screenshots in minutes</h2>
+          <h2>Simple pricing</h2>
           <p style="margin:0 auto 16px;max-width:62ch;">Free trial (3 days), then $1.99/month or $9.99 lifetime. Built for launch teams who care about both speed and style.</p>
+          <div class="cta-actions">
+            <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
+              <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+            </a>
+            <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try Free for 3 Days</a>
+          </div>
           <div class="chips">
             <span class="chip">Apple Silicon</span>
             <span class="chip">Intel Compatible</span>

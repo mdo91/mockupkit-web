@@ -9,7 +9,9 @@ Marketing website for **Mockup Kit** (macOS app for App Store screenshot mockups
 - `terms-of-use.html` - legal terms
 - `privacy-policy.html` - privacy policy
 - `blog/` - blog index and SEO posts (clean folder URLs)
-- `Assets/` - logo, screenshots, and App Store badge assets
+- `robots.txt` - crawl rules and sitemap reference
+- `sitemap.xml` - site URL list for search engines
+- `Assets/` - logo, favicons, screenshots, and App Store badge assets
 - `.github/workflows/deploy-pages.yml` - GitHub Pages deployment workflow
 
 ### Blog routes

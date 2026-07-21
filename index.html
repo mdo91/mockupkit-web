@@ -3,7 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mockup Kit - App Store Screenshot Mockups</title>
+  <title>Mockup Kit — App Store Screenshot Mockups for Mac</title>
+  <meta name="description" content="Mockup Kit is a native Mac app for App Store screenshots. Import iPhone captures, add backgrounds and headlines, export on-spec sizes. 3-day free trial.">
+  <link rel="canonical" href="https://mockupkits.com/">
+  <meta name="theme-color" content="#fff9ef">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/Assets/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/Assets/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/Assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="preload" as="image" href="./Assets/asset-1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mockup Kit — App Store Screenshot Mockups for Mac">
+  <meta property="og:description" content="Compose, position, and export iPhone App Store screenshots on Mac. 3-day free trial, then $1.99/month or $9.99 lifetime.">
+  <meta property="og:url" content="https://mockupkits.com/">
+  <meta property="og:image" content="https://mockupkits.com/Assets/asset-1.png">
+  <meta property="og:site_name" content="Mockup Kit">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mockup Kit — App Store Screenshot Mockups for Mac">
+  <meta name="twitter:description" content="Compose, position, and export iPhone App Store screenshots on Mac. 3-day free trial.">
+  <meta name="twitter:image" content="https://mockupkits.com/Assets/asset-1.png">
   <style>
     :root {
       --page: #fff9ef;
@@ -128,6 +146,7 @@
       grid-template-columns: 1.1fr .9fr;
       align-items: center;
     }
+    .hero-card > * { min-width: 0; }
     .tag {
       display: inline-block;
       margin-bottom: 12px;
@@ -159,6 +178,27 @@
       flex-wrap: wrap;
       align-items: center;
     }
+    .hero-pricing {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .trial-chip {
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: var(--yellow);
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
     .ghost {
       text-decoration: none;
       border: 2px solid #000;
@@ -177,7 +217,7 @@
       background: #fff;
       transform: rotate(-1.2deg);
     }
-    .mock img { width: 100%; display: block; }
+    .mock img { width: 100%; height: auto; display: block; }
     .section { padding: clamp(72px, 9vw, 108px) 0; }
     .panel {
       background: var(--paper);
@@ -227,7 +267,7 @@
       box-shadow: 4px 4px 0 #000;
       background: #fff;
     }
-    .shots img { width: 100%; display: block; }
+    .shots img { width: 100%; height: auto; display: block; }
     .quotes {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -254,6 +294,14 @@
       color: #111;
     }
     .cta-box h2 { margin-top: 0; }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0 auto 16px;
+    }
     .chips {
       margin-top: 14px;
       display: flex;
@@ -269,6 +317,37 @@
       font-weight: 700;
       font-size: .86rem;
     }
+    .blog-teaser {
+      border: 2px solid #000;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #fff, #fffaf1);
+      box-shadow: 4px 4px 0 #000;
+      padding: 18px;
+      max-width: 72ch;
+    }
+    .blog-teaser h3 { margin: 0 0 8px; font-size: 1.2rem; }
+    .blog-teaser p { margin: 0 0 14px; color: #464d62; }
+    .read-link {
+      display: inline-block;
+      text-decoration: none;
+      border: 2px solid #000;
+      border-radius: 999px;
+      background: var(--mint);
+      color: #111;
+      font-weight: 800;
+      padding: 8px 14px;
+      box-shadow: 3px 3px 0 #000;
+    }
+    .faq-list { display: grid; gap: 12px; }
+    .faq-item {
+      border: 2px solid #000;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 4px 4px 0 #000;
+      padding: 16px;
+    }
+    .faq-item h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .faq-item p { margin: 0; color: #464d62; }
     footer {
       margin-top: 62px;
       border-top: 2px solid #000;
@@ -290,6 +369,82 @@
       .mock, .quote { transform: none !important; transition: none; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Mockup Kit",
+        "url": "https://mockupkits.com/",
+        "publisher": { "@id": "https://mockupkits.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://mockupkits.com/#organization",
+        "name": "Damas Technologies",
+        "url": "https://mockupkits.com/",
+        "email": "hi@damastechnologies.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mockupkits.com/Assets/logo.png"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Mockup Kit",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "macOS",
+        "description": "Native Mac app for composing App Store screenshot mockups with backgrounds, headlines, overlays, and on-spec export.",
+        "downloadUrl": "https://apps.apple.com/app/id6784220988",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "1.99",
+            "priceCurrency": "USD",
+            "description": "Monthly subscription after 3-day free trial"
+          },
+          {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "description": "Lifetime purchase"
+          }
+        ],
+        "publisher": { "@id": "https://mockupkits.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need Figma or Photoshop to make App Store screenshots on Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not for straightforward marketing sets. If you already have clean iPhone captures, Mockup Kit covers background, headline, overlays, and on-spec export without a full design file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which iPhone sizes should I export for App Store Connect?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Export the sizes App Store Connect requires for your listing. Mockup Kit supports 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″ iPhone dimensions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I try Mockup Kit before paying?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Mockup Kit includes a 3-day free trial, then $1.99/month or $9.99 lifetime."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -301,7 +456,7 @@
 
   <header>
     <div class="wrap nav">
-      <a class="brand" href="./index.html">
+      <a class="brand" href="/">
         <img src="./Assets/logo.png" alt="Mockup Kit logo">
         <span>Mockup Kit</span>
       </a>
@@ -309,12 +464,16 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#proof">Proof</a></li>
+          <li><a href="./blog/">Blog</a></li>
           <li><a href="#pricing">Pricing</a></li>
         </ul>
       </nav>
-      <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
-        <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
-      </a>
+      <div class="header-cta">
+        <span class="trial-chip">3-day free trial</span>
+        <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
+          <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+        </a>
+      </div>
     </div>
   </header>
 
@@ -324,14 +483,15 @@
         <article class="hero-card">
           <div>
             <span class="tag">App Store screenshot workflow</span>
-            <h1>App Store screenshots in minutes</h1>
+            <h1>App Store screenshots on Mac, in minutes</h1>
             <p class="lead">Compose, position, and export iPhone mockups without leaving your Mac. Built for designers and indie teams shipping fast.</p>
             <div class="hero-actions">
               <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
                 <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
               </a>
-              <a class="ghost" href="#">Try Free for 3 Days</a>
+              <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try Free for 3 Days</a>
             </div>
+            <p class="hero-pricing">3-day free trial, then $1.99/month or $9.99 lifetime.</p>
           </div>
           <figure class="mock">
             <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
@@ -385,11 +545,50 @@
       </div>
     </section>
 
+    <section class="section" id="blog">
+      <div class="wrap panel">
+        <h2>From the blog</h2>
+        <p class="sub">Practical App Store screenshot guides for Mac — sizes, backgrounds, and indie workflows.</p>
+        <article class="blog-teaser">
+          <h3>How to Make App Store Screenshots on Mac</h3>
+          <p>Step-by-step workflow for App Store Connect sizes, backgrounds, headlines, and export — without Figma.</p>
+          <a class="read-link" href="./blog/how-to-make-app-store-screenshots-on-mac/">Read the guide</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap panel">
+        <h2>Frequently asked questions</h2>
+        <p class="sub">Quick answers before you download Mockup Kit from the Mac App Store.</p>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>Do I need Figma or Photoshop?</h3>
+            <p>Not for straightforward marketing sets. If you already have clean iPhone captures, Mockup Kit covers background, headline, overlays, and on-spec export without a full design file.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Which iPhone sizes should I export?</h3>
+            <p>Export the sizes App Store Connect requires for your listing. Mockup Kit supports 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″ iPhone dimensions.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I try Mockup Kit before paying?</h3>
+            <p>Yes. Mockup Kit includes a 3-day free trial, then $1.99/month or $9.99 lifetime.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="pricing">
       <div class="wrap">
         <div class="cta-box">
-          <h2>App Store screenshots in minutes</h2>
+          <h2>Simple pricing</h2>
           <p style="margin:0 auto 16px;max-width:62ch;">Free trial (3 days), then $1.99/month or $9.99 lifetime. Built for launch teams who care about both speed and style.</p>
+          <div class="cta-actions">
+            <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
+              <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
+            </a>
+            <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try Free for 3 Days</a>
+          </div>
           <div class="chips">
             <span class="chip">Apple Silicon</span>
             <span class="chip">Intel Compatible</span>

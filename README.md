@@ -11,7 +11,7 @@ Marketing website for **Mockup Kit** (macOS app for App Store screenshot mockups
 - `blog/` - blog index and SEO posts (clean folder URLs)
 - `robots.txt` - crawl rules and sitemap reference
 - `sitemap.xml` - site URL list for search engines
-- `Assets/` - logo, screenshots, and App Store badge assets
+- `Assets/` - logo, favicons, screenshots, and App Store badge assets
 - `.github/workflows/deploy-pages.yml` - GitHub Pages deployment workflow
 
 ### Blog routes

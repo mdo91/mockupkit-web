@@ -146,6 +146,7 @@
       grid-template-columns: 1.1fr .9fr;
       align-items: center;
     }
+    .hero-card > * { min-width: 0; }
     .tag {
       display: inline-block;
       margin-bottom: 12px;
@@ -195,7 +196,7 @@
       background: #fff;
       transform: rotate(-1.2deg);
     }
-    .mock img { width: 100%; display: block; }
+    .mock img { width: 100%; height: auto; display: block; }
     .section { padding: clamp(72px, 9vw, 108px) 0; }
     .panel {
       background: var(--paper);
@@ -245,7 +246,7 @@
       box-shadow: 4px 4px 0 #000;
       background: #fff;
     }
-    .shots img { width: 100%; display: block; }
+    .shots img { width: 100%; height: auto; display: block; }
     .quotes {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -427,7 +428,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="/">
-        <img src="./Assets/logo.png" alt="Mockup Kit logo" width="44" height="44">
+        <img src="./Assets/logo.png" alt="Mockup Kit logo">
         <span>Mockup Kit</span>
       </a>
       <nav aria-label="Main navigation">
@@ -460,7 +461,7 @@
             </div>
           </div>
           <figure class="mock">
-            <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout" width="1440" height="900">
+            <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
           </figure>
         </article>
       </div>
@@ -493,8 +494,8 @@
           </article>
         </div>
         <div class="shots">
-          <figure><img src="./Assets/asset-1.png" loading="lazy" width="1440" height="900" alt="Mockup Kit first screenshot on light cartoon variation"></figure>
-          <figure><img src="./Assets/asset-2.png" loading="lazy" width="1440" height="900" alt="Mockup Kit second screenshot on light cartoon variation"></figure>
+          <figure><img src="./Assets/asset-1.png" loading="lazy" alt="Mockup Kit first screenshot on light cartoon variation"></figure>
+          <figure><img src="./Assets/asset-2.png" loading="lazy" alt="Mockup Kit second screenshot on light cartoon variation"></figure>
         </div>
       </div>
     </section>

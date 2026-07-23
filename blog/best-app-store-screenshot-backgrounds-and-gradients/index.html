@@ -76,7 +76,12 @@
       margin: 20px 0; border: 2px solid #000; border-radius: 14px; overflow: hidden;
       box-shadow: 4px 4px 0 #000; background: #fff;
     }
-    .shot img { display: block; width: 100%; }
+    .shot img { display: block; width: 100%; height: auto; }
+    .shot-app-store {
+      max-width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .swatch-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -369,7 +374,7 @@
         <li>Export a test PNG and view it on a light desktop background to mimic App Store browsing.</li>
       </ul>
 
-      <figure class="shot">
+      <figure class="shot shot-app-store">
         <img src="../../Assets/screenshot-3.jpg" loading="lazy" alt="Exported App Store screenshot with pink-to-orange gradient background, headline, iPhone mockup, and PNG overlay badges">
       </figure>
       <p>The finished mockup: a soft warm gradient behind the device, readable headline type, and overlay artwork — ready for App Store Connect export.</p>

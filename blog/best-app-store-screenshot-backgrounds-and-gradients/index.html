@@ -76,7 +76,72 @@
       margin: 20px 0; border: 2px solid #000; border-radius: 14px; overflow: hidden;
       box-shadow: 4px 4px 0 #000; background: #fff;
     }
-    .shot img { display: block; width: 100%; }
+    .shot img { display: block; width: 100%; height: auto; }
+    .shot-app-store {
+      max-width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+    .swatch-card {
+      border: 2px solid #000;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 3px 3px 0 #000;
+    }
+    .swatch-preview {
+      height: 72px;
+      border-bottom: 2px solid #000;
+    }
+    .swatch-label {
+      margin: 0;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: #32374d;
+    }
+    .swatch-label strong { display: block; color: var(--ink); margin-bottom: 4px; }
+    .swatch-label code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.82rem;
+      color: #1f3db5;
+      word-break: break-all;
+    }
+    .pattern-list {
+      display: grid;
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+    .pattern-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 14px;
+      align-items: center;
+      border: 2px solid #000;
+      border-radius: 14px;
+      padding: 12px;
+      background: linear-gradient(145deg, #fff, #fffaf1);
+      box-shadow: 3px 3px 0 #000;
+    }
+    .pattern-preview {
+      width: 88px;
+      height: 88px;
+      border: 2px solid #000;
+      border-radius: 12px;
+      box-shadow: 2px 2px 0 #000;
+    }
+    .pattern-item h3 { margin: 0 0 6px; font-size: 1rem; }
+    .pattern-item p { margin: 0; font-size: 0.92rem; }
+    @media (max-width: 560px) {
+      .pattern-item { grid-template-columns: 1fr; }
+      .pattern-preview { width: 100%; height: 64px; }
+    }
     .cta {
       margin-top: 28px; border: 2px solid #000; border-radius: 16px; background: linear-gradient(120deg, #fff3ce, #ffc2df 40%, #9ce7ff);
       padding: 18px; box-shadow: 4px 4px 0 #000;
@@ -103,7 +168,7 @@
     "headline": "Best App Store Screenshot Backgrounds and Gradients",
     "description": "Choose solid and gradient App Store screenshot backgrounds that stay premium, keep UI readable, and work with Mockup Kit presets and custom colors on Mac.",
     "datePublished": "2026-07-20",
-    "dateModified": "2026-07-20",
+    "dateModified": "2026-07-23",
     "author": { "@type": "Organization", "name": "Damas Technologies" },
     "publisher": {
       "@type": "Organization",
@@ -160,12 +225,143 @@
       </ul>
       <p>Avoid neon pairs, high-saturation hot pink on cyan, and pure black or pure white fills. Neon backgrounds date quickly and fight device UI. Pure extremes make edges hard to judge and look unfinished on the product page.</p>
 
+      <h3>Recommended solid colors (with hex values)</h3>
+      <p>Enter these in Mockup Kit’s custom color field, or pick the closest preset and fine-tune. Each swatch is sized for quick visual comparison at a glance.</p>
+      <div class="swatch-grid">
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#2563EB" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Indigo Blue</strong><code>#2563EB</code><br>Productivity, finance, utilities</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#1E3A8A" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Deep Navy</strong><code>#1E3A8A</code><br>Trust, pro tools, dashboards</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#9E52F5" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Soft Purple</strong><code>#9E52F5</code><br>Creative apps, modern SaaS</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#7C3AED" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Violet</strong><code>#7C3AED</code><br>Design, media, lifestyle</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#1A1F36" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Charcoal Navy</strong><code>#1A1F36</code><br>Dark UI, premium tools</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#0F172A" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Midnight</strong><code>#0F172A</code><br>Pro apps, developer tools</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#F5F0E8" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Warm Cream</strong><code>#F5F0E8</code><br>Light UI, reading, wellness</p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#E8DCC8" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Soft Sand</strong><code>#E8DCC8</code><br>Lifestyle, food, content</p>
+        </div>
+      </div>
+
+      <h3>Recommended gradients (start → end hex)</h3>
+      <p>Use these as custom gradient stops in Mockup Kit. Keep the angle simple — top-to-bottom or a soft diagonal reads best on App Store pages.</p>
+      <div class="swatch-grid">
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #3B82F6 0%, #1D4ED8 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Productivity Blue</strong><code>#3B82F6 → #1D4ED8</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #A855F7 0%, #6366F1 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Modern Purple</strong><code>#A855F7 → #6366F1</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #F97316 0%, #EC4899 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Sunset Warmth</strong><code>#F97316 → #EC4899</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #1E293B 0%, #0F172A 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Dark Premium</strong><code>#1E293B → #0F172A</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #2DD4BF 0%, #0891B2 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Fresh Teal</strong><code>#2DD4BF → #0891B2</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #FFF7ED 0%, #FDE68A 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Soft Dawn</strong><code>#FFF7ED → #FDE68A</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #34D399 0%, #059669 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Health Green</strong><code>#34D399 → #059669</code></p>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:linear-gradient(160deg, #818CF8 0%, #4F46E5 100%)" aria-hidden="true"></div>
+          <p class="swatch-label"><strong>Indigo Glow</strong><code>#818CF8 → #4F46E5</code></p>
+        </div>
+      </div>
+
+      <h2>Most common colors and patterns on the App Store</h2>
+      <p>Scroll top charts in any category and a few background systems repeat. These are not rules — but they explain why certain palettes feel “native” to the store while others feel out of place.</p>
+      <div class="pattern-list">
+        <article class="pattern-item">
+          <div class="pattern-preview" style="background:linear-gradient(180deg, #6366F1 0%, #4338CA 100%)" aria-hidden="true"></div>
+          <div>
+            <h3>Soft vertical gradient</h3>
+            <p>The most common pattern overall. Two related hues, lighter at the top, darker at the bottom. Works for productivity, social, and utility apps when UI is light or dark.</p>
+          </div>
+        </article>
+        <article class="pattern-item">
+          <div class="pattern-preview" style="background:#2563EB" aria-hidden="true"></div>
+          <div>
+            <h3>Single brand color field</h3>
+            <p>One solid hex across the whole set — often the app’s primary brand color slightly desaturated. Common in finance, B2B, and tools where clarity beats atmosphere.</p>
+          </div>
+        </article>
+        <article class="pattern-item">
+          <div class="pattern-preview" style="background:linear-gradient(145deg, #1E293B 0%, #0F172A 100%)" aria-hidden="true"></div>
+          <div>
+            <h3>Dark premium canvas</h3>
+            <p>Charcoal or navy backgrounds with light UI captures. Signals “pro” and shows up often in developer tools, editors, and subscription apps.</p>
+          </div>
+        </article>
+        <article class="pattern-item">
+          <div class="pattern-preview" style="background:#F8FAFC" aria-hidden="true"></div>
+          <div>
+            <h3>Light neutral field</h3>
+            <p>Off-white and cool gray (<code>#F8FAFC</code>, <code>#F1F5F9</code>) behind light UI. Popular when the app itself is mostly white — the mockup adds subtle separation from App Store page chrome.</p>
+          </div>
+        </article>
+        <article class="pattern-item">
+          <div class="pattern-preview" style="background:linear-gradient(135deg, #F97316 0%, #DB2777 100%)" aria-hidden="true"></div>
+          <div>
+            <h3>Warm duotone gradient</h3>
+            <p>Orange-to-pink or coral-to-purple flows for lifestyle, fitness, and consumer apps. Keep saturation controlled so headlines stay readable.</p>
+          </div>
+        </article>
+        <article class="pattern-item">
+          <div class="pattern-preview" style="background:radial-gradient(circle at 50% 35%, #A855F7 0%, #312E81 70%)" aria-hidden="true"></div>
+          <div>
+            <h3>Radial glow behind the device</h3>
+            <p>Less common than linear gradients, but effective for hero screenshots: a soft spotlight draws the eye to the phone frame. Use one radial frame only; do not mix with busy patterns elsewhere in the set.</p>
+          </div>
+        </article>
+      </div>
+      <h3>Category color habits (quick reference)</h3>
+      <ul>
+        <li><strong>Finance &amp; productivity:</strong> blues and indigos (<code>#2563EB</code>, <code>#1D4ED8</code>) — solids or subtle gradients.</li>
+        <li><strong>Health &amp; fitness:</strong> teals and greens (<code>#14B8A6</code>, <code>#059669</code>) — often gradient for energy.</li>
+        <li><strong>Social &amp; entertainment:</strong> purples and magentas (<code>#A855F7</code>, <code>#EC4899</code>) — warmer duotones.</li>
+        <li><strong>Lifestyle &amp; food:</strong> creams, sand, and peach (<code>#FFF7ED</code>, <code>#FDBA74</code>) — light fields or soft warm gradients.</li>
+        <li><strong>Developer &amp; pro tools:</strong> dark navy and charcoal (<code>#1E293B</code>, <code>#0F172A</code>) — minimal contrast noise.</li>
+      </ul>
+      <p>When in doubt, match your category’s common pattern lightly — then differentiate with typography and framing, not a unrelated neon palette.</p>
+
       <h2>How to use Mockup Kit solid and gradient backgrounds</h2>
       <p>In Store Mockup, set the canvas background before you obsess over pixel-perfect title placement. Background decisions affect every later contrast choice.</p>
 
       <figure class="shot">
-        <img src="../../Assets/asset-2.png" loading="lazy" alt="Mockup Kit interface showing App Store screenshot composition with background and overlays">
+        <img src="../../Assets/demo22.png" loading="lazy" alt="Mockup Kit Store Mockup canvas on Mac with screenshot layout, title controls, and overlay tools">
       </figure>
+      <p>The canvas is where you compose: import your capture, set background colors or gradient stops, position the headline, and add overlay PNGs before export.</p>
 
       <h3>Solid presets and custom colors</h3>
       <p>Start with a solid preset close to your brand, then refine with a custom color if needed. Check the screenshot at thumbnail size: if the device frame and UI buttons disappear into the canvas, lighten or darken the field.</p>
@@ -178,6 +374,11 @@
         <li>Export a test PNG and view it on a light desktop background to mimic App Store browsing.</li>
       </ul>
 
+      <figure class="shot shot-app-store">
+        <img src="../../Assets/screenshot-3.jpg" loading="lazy" alt="Exported App Store screenshot with pink-to-orange gradient background, headline, iPhone mockup, and PNG overlay badges">
+      </figure>
+      <p>The finished mockup: a soft warm gradient behind the device, readable headline type, and overlay artwork — ready for App Store Connect export.</p>
+
       <h2>Contrast tips with device UI and App Store chrome</h2>
       <p>App Store pages are bright. Your marketing canvas sits inside that environment, so extreme dark-on-dark or light-on-light stacks fail twice: once in the mockup, again on the store page.</p>
       <ul>
@@ -186,10 +387,6 @@
         <li><strong>Overlay restraint.</strong> Badges and artwork need clear edges; busy gradients make overlays harder to read.</li>
         <li><strong>Set-wide rhythm.</strong> Vary screens, not background systems, so shoppers scan features instead of guessing a new theme each frame.</li>
       </ul>
-
-      <figure class="shot">
-        <img src="../../Assets/asset-1.png" loading="lazy" alt="Mockup Kit Store Mockup canvas with iPhone screenshot and headline on a branded background">
-      </figure>
 
       <h2>A simple decision checklist</h2>
       <ol>

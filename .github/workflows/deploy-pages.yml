@@ -26,23 +26,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Validate and build
+        run: |
+          npm test
+          npm run check
+          npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
-      - name: Prepare Pages artifact
-        run: |
-          rm -rf _site
-          mkdir -p _site
-          cp index.html privacy-policy.html support.html terms-of-use.html _site/
-          cp favicon.ico robots.txt sitemap.xml _site/
-          cp -R Assets _site/Assets
-          cp -R blog _site/blog
-          touch _site/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site/
+          path: dist/
 
       - name: Deploy to GitHub Pages (attempt 1)
         id: deployment

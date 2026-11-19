@@ -1,0 +1,20 @@
+{
+  "name": "mockupkit-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs && node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs",
+    "growth:collect": "node scripts/growth/collect.mjs",
+    "growth:keywords": "node scripts/growth/keywords.mjs"
+  },
+  "dependencies": {
+    "marked": "18.1.1",
+    "parse5": "8.0.1",
+    "yaml": "2.9.1"
+  }
+}

@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mockup Kit — App Store Screenshot Mockups for Mac</title>
-  <meta name="description" content="Mockup Kit is a native Mac app for App Store screenshots. Import iPhone captures, add backgrounds and headlines, export on-spec sizes. 3-day free trial.">
+  <meta name="description" content="Create, localize, and batch-export iPhone App Store screenshot mockups on your Mac. Add backgrounds, headlines, frames, and overlays. One selected export free.">
   <link rel="canonical" href="https://mockupkits.com/">
   <meta name="theme-color" content="#fff9ef">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -23,478 +23,64 @@
   <link rel="preload" as="image" href="./Assets/asset-1.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mockup Kit — App Store Screenshot Mockups for Mac">
-  <meta property="og:description" content="Compose, position, and export iPhone App Store screenshots on Mac. 3-day free trial, then $1.99/month or $9.99 lifetime.">
+  <meta property="og:description" content="Compose iPhone screenshot mockups on Mac. One selected export free; Premium unlocks unlimited selected exports and Export All.">
   <meta property="og:url" content="https://mockupkits.com/">
   <meta property="og:image" content="https://mockupkits.com/Assets/asset-1.png">
   <meta property="og:site_name" content="Mockup Kit">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mockup Kit — App Store Screenshot Mockups for Mac">
-  <meta name="twitter:description" content="Compose, position, and export iPhone App Store screenshots on Mac. 3-day free trial.">
+  <meta name="twitter:description" content="Compose iPhone screenshot mockups on Mac with backgrounds, headlines, and overlays. One selected export free.">
   <meta name="twitter:image" content="https://mockupkits.com/Assets/asset-1.png">
-  <style>
-    :root {
-      --page: #fff9ef;
-      --paper: #ffffff;
-      --ink: #111317;
-      --muted: #545a6a;
-      --pink: #ff79ba;
-      --cyan: #69dbff;
-      --yellow: #ffd95a;
-      --mint: #8df0cb;
-      --violet: #9e52f5;
-      --line: #121212;
-      --max: 1120px;
-      --shadow: 6px 6px 0 #000;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--page);
-      line-height: 1.55;
-      letter-spacing: 0.01em;
-    }
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 8px;
-      background: #111;
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 10px;
-      z-index: 1000;
-    }
-    .skip-link:focus { top: 8px; }
-    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid #2f4bd8;
-      outline-offset: 3px;
-    }
-    .pattern {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(circle at 10px 10px, rgba(158, 82, 245, 0.14) 2px, transparent 3px) 0 0 / 28px 28px,
-        linear-gradient(90deg, transparent 0 96%, rgba(0, 0, 0, 0.04) 96% 100%) 0 0 / 46px 46px;
-      opacity: 0.45;
-    }
-    .shape {
-      position: fixed;
-      z-index: 0;
-      border: 2px solid #000;
-      box-shadow: 4px 4px 0 #000;
-      pointer-events: none;
-      opacity: 0.95;
-    }
-    .s1 { width: 70px; height: 70px; border-radius: 50%; background: var(--pink); top: 100px; right: 9%; }
-    .s2 { width: 76px; height: 76px; background: var(--cyan); transform: rotate(16deg); top: 320px; left: 5%; }
-    .s3 {
-      width: 0; height: 0; box-shadow: none; border: 0;
-      border-left: 46px solid transparent;
-      border-right: 46px solid transparent;
-      border-bottom: 76px solid var(--yellow);
-      right: 7%;
-      bottom: 140px;
-      filter: drop-shadow(4px 4px 0 #000);
-    }
-    .s4 { width: 56px; height: 56px; border-radius: 14px; background: var(--mint); left: 8%; bottom: 70px; transform: rotate(-12deg); }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 2px solid #000;
-      background: rgba(255, 249, 239, 0.92);
-      backdrop-filter: blur(8px);
-    }
-    .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--ink);
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .brand img { height: 44px; width: auto; }
-    nav ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      gap: 18px;
-    }
-    nav a {
-      color: #252a3c;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-    .store-badge { display: inline-block; line-height: 0; }
-    .store-badge img { height: 48px; width: auto; display: block; }
-    main { position: relative; z-index: 2; }
-    .hero { padding: clamp(64px, 10vw, 104px) 0 clamp(32px, 5vw, 48px); }
-    .hero-card {
-      background: var(--paper);
-      border: 3px solid #000;
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: clamp(20px, 3vw, 38px);
-      display: grid;
-      gap: 22px;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-    }
-    .hero-card > * { min-width: 0; }
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      border: 2px solid #000;
-      border-radius: 999px;
-      padding: 6px 12px;
-      background: var(--mint);
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 5.8vw, 4.2rem);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      max-width: 13ch;
-    }
-    .lead {
-      margin: 0 0 16px;
-      max-width: 56ch;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.1vw + .8rem, 1.12rem);
-    }
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .hero-pricing {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 600;
-    }
-    .header-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .trial-chip {
-      border: 2px solid #000;
-      border-radius: 999px;
-      background: var(--yellow);
-      padding: 6px 10px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    .ghost {
-      text-decoration: none;
-      border: 2px solid #000;
-      border-radius: 999px;
-      background: #fff;
-      color: #101317;
-      font-weight: 800;
-      padding: 10px 16px;
-      box-shadow: 4px 4px 0 #000;
-    }
-    .mock {
-      border: 3px solid #000;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 6px 6px 0 #000;
-      background: #fff;
-      transform: rotate(-1.2deg);
-    }
-    .mock img { width: 100%; height: auto; display: block; }
-    .demo-section { padding: 0 0 clamp(56px, 8vw, 96px); }
-    .demo-steps {
-      margin: 18px 0 0;
-      padding-left: 1.2rem;
-      color: #464d62;
-      max-width: 72ch;
-    }
-    .demo-steps li { margin-bottom: 6px; }
-    .video-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 3px solid #000;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: #111;
-    }
-    .video-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .video-link {
-      display: inline-block;
-      margin-top: 14px;
-      font-weight: 700;
-      color: #1f3db5;
-    }
-    .section { padding: clamp(72px, 9vw, 108px) 0; }
-    .panel {
-      background: var(--paper);
-      border: 3px solid #000;
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: clamp(20px, 3vw, 32px);
-    }
-    .panel h2 {
-      margin: 0 0 10px;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-    }
-    .sub { margin: 0 0 22px; color: var(--muted); max-width: 64ch; }
-    .features {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: 1fr 1fr;
-    }
-    .feature {
-      border: 2px solid #000;
-      border-radius: 16px;
-      padding: 16px;
-      background: linear-gradient(145deg, #fff, #fffaf1);
-      box-shadow: 4px 4px 0 #000;
-    }
-    .feature h3 { margin: 0 0 8px; font-size: 1.2rem; }
-    .feature p { margin: 0; color: #464d62; }
-    .icon {
-      width: 24px;
-      height: 24px;
-      color: var(--violet);
-      margin-bottom: 10px;
-    }
-    .shots {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .shots figure {
-      margin: 0;
-      border: 2px solid #000;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 4px 4px 0 #000;
-      background: #fff;
-    }
-    .shots img { width: 100%; height: auto; display: block; }
-    .quotes {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .quote {
-      border: 2px solid #000;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 4px 4px 0 #000;
-      padding: 16px;
-      transition: transform .16s ease;
-    }
-    .quote:hover { transform: translateY(-3px) rotate(.5deg); }
-    .quote p { margin: 0 0 10px; color: #2c3146; }
-    .quote strong { font-size: .93rem; color: #5a617f; }
-    .cta-box {
-      border: 3px solid #000;
-      border-radius: 24px;
-      box-shadow: 8px 8px 0 #000;
-      background: linear-gradient(120deg, #fff3ce, #ffc2df 38%, #9ce7ff 70%, #c0ffd7);
-      padding: clamp(22px, 4vw, 42px);
-      text-align: center;
-      color: #111;
-    }
-    .cta-box h2 { margin-top: 0; }
-    .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin: 0 auto 16px;
-    }
-    .chips {
-      margin-top: 14px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .chip {
-      border: 2px solid #000;
-      border-radius: 999px;
-      background: #fff;
-      padding: 8px 12px;
-      font-weight: 700;
-      font-size: .86rem;
-    }
-    .blog-teaser {
-      border: 2px solid #000;
-      border-radius: 16px;
-      background: linear-gradient(145deg, #fff, #fffaf1);
-      box-shadow: 4px 4px 0 #000;
-      padding: 18px;
-      max-width: 72ch;
-    }
-    .blog-teaser h3 { margin: 0 0 8px; font-size: 1.2rem; }
-    .blog-teaser p { margin: 0 0 14px; color: #464d62; }
-    .read-link {
-      display: inline-block;
-      text-decoration: none;
-      border: 2px solid #000;
-      border-radius: 999px;
-      background: var(--mint);
-      color: #111;
-      font-weight: 800;
-      padding: 8px 14px;
-      box-shadow: 3px 3px 0 #000;
-    }
-    .faq-list { display: grid; gap: 12px; }
-    .faq-item {
-      border: 2px solid #000;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 4px 4px 0 #000;
-      padding: 16px;
-    }
-    .faq-item h3 { margin: 0 0 8px; font-size: 1.05rem; }
-    .faq-item p { margin: 0; color: #464d62; }
-    footer {
-      margin-top: 62px;
-      border-top: 2px solid #000;
-      background: #fff2d6;
-      padding: 24px 0 40px;
-      color: #20253a;
-      position: relative;
-      z-index: 2;
-    }
-    footer a { color: #1f3db5; }
-    @media (max-width: 980px) {
-      nav { display: none; }
-      .hero-card { grid-template-columns: 1fr; }
-      .features, .shots, .quotes { grid-template-columns: 1fr; }
-      .shape { opacity: 0.65; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .mock, .quote { transform: none !important; transition: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="/Assets/site.css">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "name": "Mockup Kit",
-        "url": "https://mockupkits.com/",
-        "publisher": { "@id": "https://mockupkits.com/#organization" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://mockupkits.com/#organization",
-        "name": "Damas Technologies",
-        "url": "https://mockupkits.com/",
-        "email": "hi@damastechnologies.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://mockupkits.com/Assets/logo.png"
-        }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Mockup Kit",
-        "applicationCategory": "DesignApplication",
-        "operatingSystem": "macOS",
-        "description": "Native Mac app for composing App Store screenshot mockups with backgrounds, headlines, overlays, and on-spec export.",
-        "downloadUrl": "https://apps.apple.com/app/id6784220988",
-        "offers": [
-          {
-            "@type": "Offer",
-            "price": "1.99",
-            "priceCurrency": "USD",
-            "description": "Monthly subscription after 3-day free trial"
-          },
-          {
-            "@type": "Offer",
-            "price": "9.99",
-            "priceCurrency": "USD",
-            "description": "Lifetime purchase"
-          }
-        ],
-        "publisher": { "@id": "https://mockupkits.com/#organization" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Do I need Figma or Photoshop to make App Store screenshots on Mac?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Not for straightforward marketing sets. If you already have clean iPhone captures, Mockup Kit covers background, headline, overlays, and on-spec export without a full design file."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which iPhone sizes should I export for App Store Connect?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Export the sizes App Store Connect requires for your listing. Mockup Kit supports 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″ iPhone dimensions."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I try Mockup Kit before paying?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Mockup Kit includes a 3-day free trial, then $1.99/month or $9.99 lifetime."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "VideoObject",
-        "name": "Mockup Kit: Highlight App Features with Overlays & Stickers",
-        "description": "Watch how to highlight app features in App Store screenshots with Mockup Kit: add PNG overlay images, place stickers, and export polished marketing visuals on Mac.",
-        "embedUrl": "https://www.youtube-nocookie.com/embed/Uu4zBuc3W1o",
-        "contentUrl": "https://www.youtube.com/watch?v=Uu4zBuc3W1o",
-        "thumbnailUrl": "https://i.ytimg.com/vi/Uu4zBuc3W1o/hqdefault.jpg",
-        "uploadDate": "2026-07-24T22:22:31-07:00",
-        "duration": "PT1M10S",
-        "publisher": { "@id": "https://mockupkits.com/#organization" }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Mockup Kit",
+      "url": "https://mockupkits.com/",
+      "publisher": {
+        "@id": "https://mockupkits.com/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mockupkits.com/#organization",
+      "name": "Damas Technologies",
+      "url": "https://mockupkits.com/",
+      "email": "hi@damastechnologies.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mockupkits.com/Assets/logo.png"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Mockup Kit",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "macOS",
+      "description": "Native macOS editor for iPhone screenshot mockups with backgrounds, headlines, image overlays, and PNG or JPEG export.",
+      "downloadUrl": "https://apps.apple.com/app/id6784220988",
+      "publisher": {
+        "@id": "https://mockupkits.com/#organization"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Mockup Kit: Highlight App Features with Overlays & Stickers",
+      "description": "Watch how to highlight app features in App Store screenshots with Mockup Kit: add PNG overlay images, place stickers, and export polished marketing visuals on Mac.",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/Uu4zBuc3W1o",
+      "contentUrl": "https://www.youtube.com/watch?v=Uu4zBuc3W1o",
+      "thumbnailUrl": "https://i.ytimg.com/vi/Uu4zBuc3W1o/hqdefault.jpg",
+      "uploadDate": "2026-07-24T22:22:31-07:00",
+      "duration": "PT1M10S",
+      "publisher": {
+        "@id": "https://mockupkits.com/#organization"
+      }
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -511,17 +97,17 @@
         <img src="./Assets/logo.png" alt="Mockup Kit logo">
         <span>Mockup Kit</span>
       </a>
-      <nav aria-label="Main navigation">
+      <nav class="primary-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="#demo">Demo</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#proof">Proof</a></li>
-          <li><a href="./blog/">Blog</a></li>
+          <li><a href="#upcoming">New in 2.6</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="./blog/">Guides</a></li>
           <li><a href="#pricing">Pricing</a></li>
         </ul>
       </nav>
       <div class="header-cta">
-        <span class="trial-chip">3-day free trial</span>
+        <span class="trial-chip">One selected export free</span>
         <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
           <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
         </a>
@@ -534,16 +120,20 @@
       <div class="wrap">
         <article class="hero-card">
           <div>
-            <span class="tag">App Store screenshot workflow</span>
-            <h1>App Store screenshots on Mac, in minutes</h1>
-            <p class="lead">Compose, position, and export iPhone mockups without leaving your Mac. Built for designers and indie teams shipping fast.</p>
+            <span class="tag">Native Mac app for app creators</span>
+            <h1>Create a cohesive App Store presence</h1>
+            <p class="lead">Compose iPhone App Store screenshot mockups with your colors, headlines, and artwork. Give every listing update a consistent visual story, right from your Mac.</p>
+            <a class="studio-highlight" href="#upcoming">
+              <span class="release-tag">Coming in 2.6</span>
+              <span class="studio-highlight-name">Headers &amp; Search Results studio <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
             <div class="hero-actions">
               <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
                 <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
               </a>
-              <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try Free for 3 Days</a>
+              <a class="ghost" href="#features">Explore the tools</a>
             </div>
-            <p class="hero-pricing">3-day free trial, then $1.99/month or $9.99 lifetime.</p>
+            <p class="hero-pricing">One successful selected export is free. Premium unlocks unlimited selected exports and Export All. Current plans and local prices appear in the purchase sheet.</p>
           </div>
           <figure class="mock">
             <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
@@ -568,54 +158,133 @@
         <ol class="demo-steps">
           <li>Add your App Store screenshot to the Mockup Kit canvas</li>
           <li>Place PNG overlay images to highlight key features</li>
-          <li>Add stickers to make the screenshot more engaging</li>
-          <li>Export the final App Store-ready result</li>
+          <li>Add a short badge when it helps explain a real app feature</li>
+          <li>Export the composition at the selected screenshot dimensions</li>
         </ol>
         <a class="video-link" href="https://www.youtube.com/watch?v=Uu4zBuc3W1o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </div>
     </section>
 
-    <section class="section" id="features">
+    <section class="section" id="features" aria-labelledby="features-heading">
       <div class="wrap panel">
-        <h2>Designed to be fun and still conversion-friendly</h2>
-        <p class="sub">Decorative pattern outside, structured content inside: the best mix for startup promo pages.</p>
+        <h2 id="features-heading">Make every screenshot feel like your app</h2>
+        <p class="sub">Available now: compose a screenshot sequence, prepare language variants, check the set, and export it from a native Mac workspace. Finish standalone images, too.</p>
         <div class="features">
-          <article class="feature">
+          <article class="feature" data-capability="screenshot-mockups">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            <h3>Store Mockup</h3>
-            <p>Build screenshot sets for 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″ iPhone dimensions in one workspace.</p>
+            <h3>Frame your app’s best moments</h3>
+            <p>Import an iPhone capture, choose from multiple canvas sizes, and add a device frame. Set solid or gradient backgrounds and multiline headlines, then refine fonts, colors, placement, and rounded corners.</p>
           </article>
-          <article class="feature">
+          <article class="feature" data-capability="overlay-layers">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"/><rect x="10" y="10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            <h3>Overlay Layers</h3>
-            <p>Add badges and artwork with drag-and-drop positioning and a live preview loop while editing.</p>
+            <h3>Add a callout where it helps</h3>
+            <p>Drop in badges, stickers, or your own overlay artwork. Position them around the screenshot and headline with a live canvas preview.</p>
           </article>
-          <article class="feature">
+          <article class="feature" data-capability="image-finishing">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            <h3>Rounded Image</h3>
-            <p>Set corner radius in pixels or percentages so every exported image matches your visual system.</p>
+            <h3>Finish a single image</h3>
+            <p>Use Rounded Image to apply corner radius in pixels or a percentage, then export a PNG for your website, press kit, or another image task.</p>
           </article>
-          <article class="feature">
+          <article class="feature" data-capability="selected-export">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M4 18h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            <h3>Fast Export</h3>
-            <p>Export JPEG and PNG at App Store Connect-aligned dimensions without extra manual resizing.</p>
+            <h3>Export at your chosen dimensions</h3>
+            <p>Save selected screenshot mockups as PNG or JPEG at the chosen canvas size. Match the preset to your listing’s device requirements before uploading to App Store Connect.</p>
+          </article>
+          <article class="feature" data-capability="multi-board-workspace">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="4" width="7" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Build the whole screenshot sequence</h3>
+            <p>Arrange up to ten boards in one screenshot workspace. Give each screen its own message while keeping your set’s colors and typography consistent.</p>
+          </article>
+          <article class="feature" data-capability="localization-export">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h10M9 3v2m-3 0c0 6 5 9 8 10M12 5c0 6-5 9-8 10m10 5 4-10 4 10m-7-3h6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Give each language room to work</h3>
+            <p>Keep separate screenshot headlines and images for each language. Preview right-to-left and expanded test layouts, then export completed screenshot localizations as JPEG into language folders with consistent filenames.</p>
+          </article>
+          <article class="feature" data-capability="screenshot-preflight">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 12 5 5L20 6M4 21h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Check the set, then batch-export</h3>
+            <p>Screenshot preflight flags missing or unreadable images, missing translations, overflowing headlines, clipped overlays, and filename conflicts. Screenshot compositions export as opaque RGB images.</p>
+            <p>With Premium, Export All saves the set as JPEG. Follow progress, cancel, or retry unfinished items without replacing successful files.</p>
           </article>
         </div>
         <div class="shots">
-          <figure><img src="./Assets/asset-1.png" loading="lazy" alt="Mockup Kit first screenshot on light cartoon variation"></figure>
-          <figure><img src="./Assets/asset-2.png" loading="lazy" alt="Mockup Kit second screenshot on light cartoon variation"></figure>
+          <figure><img src="./Assets/asset-1.png" loading="lazy" alt="Mockup Kit canvas with screenshot, headline, and background controls"></figure>
+          <figure><img src="./Assets/asset-2.png" loading="lazy" alt="Example screenshot mockup with gradient, headline, and overlay artwork"></figure>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="upcoming" aria-labelledby="upcoming-heading" data-release="2.6.0" data-availability="upcoming">
+      <div class="wrap panel">
+        <span class="tag">Coming in version 2.6.0</span>
+        <h2 id="upcoming-heading">Headers &amp; Search Results studio</h2>
+        <p class="sub">The next release adds the Headers &amp; Search Results studio and extends your existing localization and batch-export workflow to creative artwork. Version 2.6.0 has been submitted for App Review and is not yet publicly available.</p>
+        <ul class="placement-tags" aria-label="Creative placements">
+          <li>Header</li>
+          <li>Search Results</li>
+          <li>Universal</li>
+        </ul>
+        <div class="features">
+          <article class="feature" data-capability="headers-search-assets">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Compose headers and search artwork</h3>
+            <p>Import screenshots, app icons, or custom artwork into dedicated Header, Search Results, and Universal canvases. Add image, text, card, badge, and ring layers.</p>
+            <p>Move, resize, rotate, reorder, hide, and lock layers, with undo and redo as you explore. Keep language-specific text and image variants for each creative scene.</p>
+          </article>
+          <article class="feature" data-capability="category-templates">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Start from an editable category template</h3>
+            <p>Choose a starting scene, drop in your UI, and customize the background, typography, and layers.</p>
+            <ul class="category-list">
+              <li>Productivity &amp; Utilities</li>
+              <li>Health, Fitness &amp; Wellness</li>
+              <li>Finance &amp; Business</li>
+              <li>AI, Developer Tools &amp; SaaS</li>
+              <li>Social, Lifestyle &amp; Entertainment</li>
+              <li>Games &amp; Interactive</li>
+            </ul>
+          </article>
+          <article class="feature" data-capability="store-preview">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>See the composition in context</h3>
+            <p>Check artwork in illustrative search-card and product-page previews. Customize the app icon, name, subtitle, and rating to judge contrast and small-size legibility.</p>
+            <p>Keep focal details inside art-safe and crop guides; the guides stay out of exports. Sync your screenshot board’s palette, gradient, and font for a matching style.</p>
+          </article>
+          <article class="feature" data-capability="creative-preflight">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 12 5 5L20 6M4 21h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Catch export issues before delivery</h3>
+            <p>Creative export flattens artwork into opaque RGB images without transparency. Preflight checks missing content, translations, text overflow, dimensions, and formats.</p>
+            <p>Batch completed creative assets into language folders, follow progress, cancel, or retry unfinished items without replacing successful files. Creative Export All requires Premium.</p>
+          </article>
+        </div>
+        <div class="placement-note">
+          <h3>Presets for Apple’s optional creative placements</h3>
+          <ul class="placement-list">
+            <li><strong>Product Page Header:</strong> 3840 × 1646 px, PNG.</li>
+            <li><strong>Search Results:</strong> 1920 × 1280 through 3840 × 2560 px, 3:2, PNG or JPEG.</li>
+            <li><strong>Universal:</strong> 5244 × 2950 px, PNG.</li>
+          </ul>
+          <p>These placements are for iOS/iPadOS 27+ apps and games, not macOS listings. Store Preview is illustrative, and preflight does not guarantee Apple approval. <a href="https://developer.apple.com/help/app-store-connect/manage-app-information/manage-your-app-store-assets">Check placement eligibility</a> and <a href="https://developer.apple.com/help/app-store-connect/reference/app-information/creative-assets-specifications">Apple’s current specifications</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section local-workflow" id="local-workflow" aria-labelledby="local-heading">
+      <div class="wrap panel">
+        <h2 id="local-heading">Your creative work stays on your Mac</h2>
+        <p class="sub">Composition and export run locally. Keep original captures and copy alongside your finished exports so the next listing update starts with your own materials.</p>
+        <p>Projects remain available during the current app session. Saving and reopening project files is not yet available, so export finished work before quitting.</p>
       </div>
     </section>
 
     <section class="section" id="proof">
       <div class="wrap panel">
-        <h2>Loved by teams shipping fast</h2>
-        <p class="sub">Social proof stays concise and legible with bold but controlled visual treatment.</p>
+        <h2>Three ways to prepare your artwork</h2>
+        <p class="sub">Example workflows for app developers, with original captures and copy kept alongside final exports.</p>
         <div class="quotes">
-          <article class="quote"><p>"It's become an integral part of how I work. I ship App Store assets in minutes."</p><strong>- Alex Rivera, Indie Developer</strong></article>
-          <article class="quote"><p>"Clean, fast, and exactly what I needed for screenshot mockups on the Mac."</p><strong>- Jordan Lee, Product Designer</strong></article>
-          <article class="quote"><p>"The overlay tools alone are worth it. My workflow feels 10x faster."</p><strong>- Sam Okonkwo, UI/UX Designer</strong></article>
+          <article class="quote"><p><strong>Explain one useful task</strong></p><p>Import a capture, write a benefit headline, and use one background system across the set.</p><a href="./blog/how-to-make-app-store-screenshots-on-mac/">Follow the screenshot guide</a></article>
+          <article class="quote"><p><strong>Choose a readable palette</strong></p><p>Try editable solid and gradient recipes, then check the headline against your own interface.</p><a href="./blog/best-app-store-screenshot-backgrounds-and-gradients/">Explore background recipes</a></article>
+          <article class="quote"><p><strong>Prepare a release checklist</strong></p><p>Organize captures, translated copy, and exports before checking the upload in App Store Connect.</p><a href="./blog/app-store-screenshot-workflow-for-indie-developers/">Use the indie workflow</a></article>
         </div>
       </div>
     </section>
@@ -643,11 +312,19 @@
           </article>
           <article class="faq-item">
             <h3>Which iPhone sizes should I export?</h3>
-            <p>Export the sizes App Store Connect requires for your listing. Mockup Kit supports 6.9″, 6.7″, 6.5″, 6.3″, and 6.1″ iPhone dimensions.</p>
+            <p>Choose the presets your listing needs. Mockup Kit includes multiple iPhone portrait sizes, but every preset is not a mandatory upload. See <a href="https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications">Apple’s current screenshot specifications</a> for device requirements and accepted dimensions.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I use Header and Search Results artwork for a Mac listing?</h3>
+            <p>Apple currently offers these optional placements for iOS and iPadOS 27+ apps and games. Mockup Kit runs on your Mac to create artwork for those apps; the placements do not apply to macOS listings. <a href="https://developer.apple.com/help/app-store-connect/manage-app-information/manage-your-app-store-assets">Check Apple’s asset eligibility guidance</a>.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is the new studio available now?</h3>
+            <p>Headers &amp; Search Results is part of version 2.6.0, submitted for App Review. The public App Store currently lists version 2.5.8 (checked November 19, 2026). The new studio will be available with version 2.6.0 after approval and release.</p>
           </article>
           <article class="faq-item">
             <h3>Can I try Mockup Kit before paying?</h3>
-            <p>Yes. Mockup Kit includes a 3-day free trial, then $1.99/month or $9.99 lifetime.</p>
+            <p>One successful selected screenshot or creative export is free. Premium unlocks unlimited selected exports and Export All. Eligible monthly subscribers may receive a three-day introductory trial; check the purchase sheet for current terms and local pricing.</p>
           </article>
         </div>
       </div>
@@ -657,12 +334,12 @@
       <div class="wrap">
         <div class="cta-box">
           <h2>Simple pricing</h2>
-          <p style="margin:0 auto 16px;max-width:62ch;">Free trial (3 days), then $1.99/month or $9.99 lifetime. Built for launch teams who care about both speed and style.</p>
+          <p style="margin:0 auto 16px;max-width:62ch;">Try one selected export free. Choose a monthly or lifetime Premium option for unlimited selected exports and Export All. Eligible monthly subscribers may see a three-day introductory trial. Prices and terms vary by storefront and are shown before purchase.</p>
           <div class="cta-actions">
             <a class="store-badge" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer" aria-label="Download on the Mac App Store">
               <img src="./Assets/US/Download_on_Mac_App_Store/Black_lockup/SVG/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store badge">
             </a>
-            <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try Free for 3 Days</a>
+            <a class="ghost" href="https://apps.apple.com/app/id6784220988" target="_blank" rel="noopener noreferrer">Try a Selected Export Free</a>
           </div>
           <div class="chips">
             <span class="chip">Apple Silicon</span>
@@ -677,7 +354,7 @@
   <footer>
     <div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;">
       <p>Questions? <a href="mailto:hi@damastechnologies.com">hi@damastechnologies.com</a></p>
-      <p><a href="./support.html">Support</a> · <a href="./blog/">Blog</a> · <a href="./terms-of-use.html">Terms of Use</a> · <a href="./privacy-policy.html">Privacy Policy</a></p>
+      <p><a href="./support.html">Support</a> · <a href="./blog/">Blog</a> · <a href="./terms-of-use.html">Terms of Use</a> · <a href="./privacy-policy.html">Privacy Policy</a> · <a href="./editorial-policy.html">Editorial Policy</a></p>
       <p>© 2026 Damas Technologies. All rights reserved.</p>
     </div>
   </footer>

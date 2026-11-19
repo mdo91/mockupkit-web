@@ -39,3 +39,23 @@ test('homepage keeps the configured Google tag and single canonical download des
  const downloads=rows.filter(({node})=>node.tagName==='a'&&attr(node,'href')?.startsWith('https://apps.apple.com/'));
  assert.ok(downloads.length>0);assert.ok(downloads.every(({node})=>attr(node,'href')===facts.appStoreUrl));
 });
+
+test('the hero studio highlight leads to its visible release section and placement tags',()=>{
+ const rows=inspect(readFileSync('index.html','utf8'));
+ const highlight=rows.find(row=>row.node.tagName==='a'&&attr(row.node,'class')?.split(/\s+/).includes('studio-highlight'));
+ assert.ok(highlight&&visible(highlight),'The studio highlight must be a visible link');
+ const destination=attr(highlight.node,'href');
+ assert.ok(destination?.startsWith('#'),'The highlight should lead to the on-page studio details');
+ const section=rows.find(row=>attr(row.node,'id')===destination.slice(1)&&row.node.tagName==='section');
+ assert.ok(section&&visible(section),'The feature link must resolve to a visible section');
+ assert.equal(attr(section.node,'data-release'),facts.release.version);
+ assert.equal(attr(section.node,'data-availability'),facts.release.publicAvailabilityVerified?'available':'upcoming');
+ const descendants=rows.filter(row=>row.ancestors.includes(section.node));
+ const heading=descendants.find(row=>row.node.tagName==='h2');
+ assert.equal(text(heading.node).trim(),'Headers & Search Results studio');
+ assert.ok(text(highlight.node).includes(text(heading.node).trim()),'The highlight must identify its destination');
+ if(!facts.release.publicAvailabilityVerified)assert.match(text(highlight.node),/Coming in 2\.6/);
+ const list=descendants.find(row=>row.node.tagName==='ul'&&attr(row.node,'aria-label')==='Creative placements');
+ assert.ok(list&&visible(list),'Placement tags must be visible to readers and assistive technology');
+ assert.deepEqual(list.node.childNodes.filter(node=>node.tagName==='li').map(node=>text(node).trim()),['Header','Search Results','Universal']);
+});

@@ -11,6 +11,8 @@ Read [product facts](../../../docs/product-facts.md), [the fact JSON](../../../s
 
 Inspect `content/guides/en/` for an existing article that already answers the query. Revise that canonical guide when intent overlaps. A genuinely new page should add a useful workflow, example, or answer for app creators, rather than another phrasing of the same keyword.
 
+Keep drafts concise: aim for 450–750 body words when useful, and accept a shorter complete answer. Automated new or changed guides have a 900-word body ceiling; this does not cap untouched library articles or the website parser. Answer the question first, then give necessary steps and one useful example or checklist. Remove filler FAQs, long introductions, repeated conclusions, and product boilerplate already supplied by the shared CTA. The budget controls cost, not Google ranking eligibility; never pad or split an answer to fit it.
+
 Use the generator's Markdown metadata and preserve existing URLs and original publication dates. Root-relative guide links and `/Assets/` images work across generated routes. Include relevant sources as `{title, url}` objects and related guides as slugs. Keep scripts and raw HTML out of article bodies. Use the supported `swatches` code fence for color recipes instead of inline CSS.
 
 Apply these product-specific checks:

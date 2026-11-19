@@ -13,71 +13,58 @@ related: ["how-to-make-app-store-screenshots-on-mac", "best-app-store-screenshot
 translationKey: "indie-screenshot-workflow"
 ---
 
-Screenshot updates are easier to repeat when the capture, copy, composition, and upload checks have a clear order. This workflow is for indie developers creating iPhone listing artwork on a Mac with Mockup Kit. For a Mac app's own listing, check Apple's Mac screenshot sizes separately.
-
-The goal is a clear, accurate release story. This is a working checklist, not a promise of a particular conversion rate or review outcome.
+Use the same order for each screenshot update: capture the release UI, compose a consistent set, review translations, export, and check the upload. Keep source files outside Mockup Kit so the next update does not depend on an open editor session.
 
 ## Plan one task per frame
 
-Choose the user tasks that changed in the release. For a habit app, a small story could show setting a goal, recording today's progress, and reviewing a streak. Write one headline for each capture before adding decorative elements.
+Choose tasks that explain the release. A habit-app example could show setting a goal, recording today's progress, and reviewing a streak. Write one headline for each capture before decorating it.
 
-Capture the build whose UI users will receive. Use sample data and remove private information. Keep originals in a release folder so you can revise crops without recapturing everything.
+Capture the build users will receive. Use publishable sample data and remove private information. Keep originals in a release folder so you can change a crop without recapturing everything.
 
 ## Compose the first frame before repeating it
 
-1. Import the strongest capture into Store Mockup.
-2. Select the listing canvas you need and choose a background.
-3. Write a short, specific headline and adjust the type size and color.
-4. Position the device and headline so important UI remains visible.
-5. Add a badge or image overlay only when it explains a real capability.
+1. Import the strongest capture into Store Mockup and choose the listing canvas.
+2. Set a background, write a specific headline, and adjust type size and color.
+3. Position the device without hiding important controls.
+4. Add a badge or overlay only when it explains a real capability.
+5. Check the result at a small size, then reuse its visual system across the set.
 
 ![Mockup Kit screenshot workspace with device capture and headline controls](/Assets/asset-1.png)
 
-Once this frame reads clearly at a small size, reuse its color and typography choices for the rest of the set. Arrange up to ten boards in the screenshot workspace. See the [background recipes](/blog/best-app-store-screenshot-backgrounds-and-gradients/) for hex values you can keep with your notes.
+Arrange up to ten screenshot boards. Use the [background recipes](/blog/best-app-store-screenshot-backgrounds-and-gradients/) for colors and the [basic composition guide](/blog/how-to-make-app-store-screenshots-on-mac/) for canvas presets. Every preset is not a mandatory upload: check [Apple's screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications) for your supported devices. A Mac app's listing needs Mac screenshot dimensions.
 
-## Choose exports from the listing requirements
+## Prepare localization and exports
 
-Do not treat every canvas preset as a mandatory upload. Use [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications) to identify the device families and accepted dimensions for your app.
+Version 2.5.8 already keeps per-language headlines and images, with right-to-left and expanded-layout previews. Review meaning, line breaks, and text embedded in captures; previews cannot replace a language review.
 
-Mockup Kit's portrait presets include 1242 × 2688, 1320 × 2868, 1284 × 2778, 1290 × 2796, 1179 × 2556, and 1170 × 2532 pixels. Check the selected dimensions before export, then inspect the actual file. A dimension check cannot tell whether a headline is misleading or a capture hides an important control.
+Selected screenshot export supports PNG or JPEG. Premium Export All writes opaque JPEG files into language folders. Names include the board, sequence, language, and dimensions: an Overview board can produce `overview-01-en-1320x2868.jpg`.
 
-Use clear filenames and folders outside the editor. For example, a manually organized release folder could contain `en-US/01-overview-1320x2868.png` and `en-US/02-progress-1320x2868.png`. These are suggested filenames for a manually organized folder. Screenshot Export All produces JPEG files in language folders; its generated names include the board name, sequence, language, and pixel dimensions, such as `overview-01-en-1320x2868.jpg` for an Overview board.
-
-## Prepare localization as content work
-
-Keep the source headline and translation together. Check meaning, line breaks, and words embedded inside screenshots. A longer translation may need a different line break or image placement; right-to-left languages also need an appropriate visual check.
-
-The available screenshot workspace keeps per-language headlines and images, offers right-to-left and expanded-layout previews, and exports completed localizations into language folders. These layout previews help find collisions, but they do not replace a language review. Version 2.6.0 extends this workflow to the new Header/Search creative scenes; that update has been submitted for review and is not yet publicly available.
+Keep a manually organized release folder for original captures, translated copy, and final exports. This separates editable source material from generated delivery files without implying that the app saves project documents.
 
 ## Plan optional creative artwork separately
 
-Version 2.6.0 also adds Header, Search Results, and Universal scenes with six editable category templates, image and text layers, cards, badges, rings, and undo/redo. Store Preview provides illustrative app search and product page layouts; it is not a live Apple listing or an approval check.
+The upcoming 2.6.0 release adds Header, Search Results, and Universal scenes, six editable templates, layered composition, undo/redo, and creative-scene localization/export. Public App Store release is not yet confirmed. Store Preview is illustrative, not a live listing or approval check.
 
-Apple makes these placements optional for iOS and iPadOS apps and games running iOS 27 or iPadOS 27 or later. They do not apply to a macOS app's listing. See [Apple's placement guidance](https://developer.apple.com/help/app-store-connect/manage-app-information/manage-your-app-store-assets).
+These optional placements are for iOS/iPadOS 27+ apps and games, not macOS listings. Check [Apple's placement eligibility](https://developer.apple.com/help/app-store-connect/manage-app-information/manage-your-app-store-assets) and [creative specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/creative-assets-specifications):
 
-Keep the key artwork inside the studio's art-safe guides and verify the final crop. Header uses 3840 × 1646 PNG; Search Results supports 1920 × 1280 through 3840 × 2560 at 3:2 in PNG or JPEG; Universal uses 5244 × 2950 PNG. Opaque RGB export removes transparency. Always recheck [Apple's creative specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/creative-assets-specifications) before uploading.
+| Placement | Export canvas | Format |
+| --- | --- | --- |
+| Header | 3840 × 1646 px | PNG |
+| Search Results | 1920 × 1280 through 3840 × 2560 px, 3:2 | PNG or JPEG |
+| Universal | 5244 × 2950 px | PNG |
 
-## Use Rounded Image for a standalone asset
-
-Rounded Image applies corner radius in pixels or a percentage and exports PNG. Use it for a press-kit image, website illustration, or another single-image finishing task. It is a different workflow from composing a full screenshot mockup or an upcoming Header/Search creative scene.
-
-![Finished screenshot composition with headline and overlay artwork](/Assets/asset-2.png)
+Keep focal artwork inside the studio's art-safe guides and inspect the crop. These images must be opaque, without an alpha channel.
 
 ## Run a release checklist
 
 - Captures and claims match the release build.
-- Headlines stay readable at small display sizes.
-- Each frame communicates a different useful task.
-- Translations and screenshot text have been checked.
-- Dimensions and file formats match the intended placement.
-- Exported files open correctly, and opaque creative assets have no alpha channel.
-- The uploaded assets look right in App Store Connect's own preview.
-- Source captures, copy, and final exports are saved outside the app session.
+- Each frame explains a different useful task.
+- Headlines remain readable at a small size.
+- Translations and embedded screenshot text have been checked.
+- Export dimensions, format, crop, and image quality match the placement.
+- Files open correctly and look right in App Store Connect's preview.
+- Source captures, copy, and final exports are retained outside the app.
 
-Screenshot preflight already flags missing or unreadable images, missing translations, overflowing text, clipped overlays, and filename conflicts. Screenshot Export All shows progress, supports cancellation, and retries unfinished items without replacing successful files; its output is opaque JPEG. The upcoming creative studio also checks its placement-specific dimensions and formats. These checks help preparation; Apple still evaluates the actual submission.
+Screenshot preflight already flags missing or unreadable images, missing translations, overflow, clipped overlays, and filename conflicts. Export All supports progress, cancellation, and retry of unfinished work without replacing successful files. The new creative studio adds placement-specific dimension and format checks; Apple still evaluates the submission.
 
-## Finish before quitting
-
-Mockup Kit projects stay in memory during the current app session. Saving and reopening project files is not yet available. Export your finished work and retain your captures and copy before closing the app.
-
-One successful selected screenshot or creative export is free. Premium unlocks unlimited selected exports and Export All. Eligible monthly subscribers may see a three-day introductory trial; local pricing and terms are shown in the purchase sheet. For the basic composition steps, return to [making App Store screenshots on Mac](/blog/how-to-make-app-store-screenshots-on-mac/).
+For a standalone image, Rounded Image applies corner radius in pixels or a percentage and exports PNG. Projects remain session-only, so export finished work before quitting; saving and reopening project files is not yet available.

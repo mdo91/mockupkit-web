@@ -18,6 +18,12 @@ Check the existing guide inventory before proposing a page. Improve the existing
 - Keep titles, descriptions, alt text, dates, and structured data accurate and consistent with visible content. Metadata has the same factual-review standard as prose.
 - New and materially revised content goes through a pull request. AI and automation may assist preparation, but checks do not replace editorial fact review. Do not mark a human review completed unless it actually happened.
 
+## Keep the answer concise
+
+Aim for 450–750 words of article body when the task needs that space. A complete shorter answer is welcome; do not pad an introduction, add filler FAQs, repeat conclusions, or split one useful answer into thin pages. Start with the immediate answer, then include the necessary steps and a concrete example or checklist. Use related links and the shared product CTA instead of repeating background and pricing throughout every guide.
+
+Apply a 900-word body ceiling to each automated new or changed guide. That output budget does not impose a global parser limit or invalidate untouched existing articles. It reduces generation and library-input costs; it is not a Google preferred word count or a substitute for helpfulness and factual review.
+
 ## Sources and evidence
 
 Favor primary sources: Apple for App Store rules, the native source and product owner for capabilities, Google Search Central for Search guidance. Use original screenshots the publisher may use, with descriptive alt text. Demo artwork illustrates a workflow and is not social proof. Preserve source URLs and verification dates; do not copy entire source documents into articles.

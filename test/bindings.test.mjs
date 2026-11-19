@@ -27,7 +27,7 @@ function analytics(source, label) {
 
 test('production builds preserve Google bindings, verification tags, canonical routes, and custom domain', async () => {
   const repository = process.cwd(), root = await mkdtemp(path.join(os.tmpdir(), 'mockupkit-bindings-'));
-  const names = ['index.html', 'support.html', 'terms-of-use.html', 'privacy-policy.html', 'editorial-policy.html'];
+  const names = ['index.html', 'support.html', 'terms-of-use.html', 'privacy-policy.html', 'editorial-policy.html', 'growth-research.html', 'growth-research-privacy.html'];
   try {
     for (const name of [...names, 'CNAME', 'favicon.ico', 'Assets', 'content']) await cp(path.join(repository, name), path.join(root, name), { recursive: true });
     await mkdir(path.join(root, 'src'), { recursive: true });

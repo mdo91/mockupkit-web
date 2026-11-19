@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import { build } from '../scripts/build.mjs';
 import { validate } from '../scripts/validate.mjs';
 import { source, metadata } from './fixtures.mjs';
+import { googleVerificationFiles } from '../src/verification.mjs';
 
 async function fixture() {
   const root = await mkdtemp(path.join(os.tmpdir(), 'mockupkit-build-'));
@@ -16,6 +17,7 @@ async function fixture() {
   await mkdir(path.join(root, 'blog'), { recursive: true });
   await cp(new URL('../Assets', import.meta.url), path.join(root, 'Assets'), { recursive: true });
   await cp(new URL('../favicon.ico', import.meta.url), path.join(root, 'favicon.ico'));
+  for (const name of googleVerificationFiles) await cp(new URL(`../${name}`, import.meta.url), path.join(root, name));
   await cp(new URL('../src/assets/blog.css', import.meta.url), path.join(root, 'src/assets/blog.css'));
   await writeFile(path.join(root, 'CNAME'), 'mockupkits.com\n');
   await writeFile(path.join(root, 'src/pages.json'), JSON.stringify({ '/': '2026-11-19' }));
@@ -62,6 +64,12 @@ test('independent site validation catches broken links and wrong source identity
   const { root } = await fixture();
   try {
     await build({ root });
+    const proofFile = path.join(root, 'dist', googleVerificationFiles[0]);
+    const proof = await readFile(proofFile);
+    const changedLineEnding = /\r?\n$/.test(proof.toString()) ? proof.toString().replace(/\r?\n$/, '') : `${proof.toString()}\n`;
+    await writeFile(proofFile, changedLineEnding);
+    assert.throws(() => validate({ root }), /built verification proof differs from its original bytes/);
+    await writeFile(proofFile, proof);
     const file = path.join(root, `dist/blog/${metadata.slug}/index.html`);
     const html = await readFile(file, 'utf8');
     await writeFile(file, html.replace('name="post-source-sha256" content="', 'name="post-source-sha256" content="wrong'));

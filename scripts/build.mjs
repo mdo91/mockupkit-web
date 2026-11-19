@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { origin, loadPosts } from '../src/posts.mjs';
 import { basePath, escapeHtml, prepareDocument, renderIndex, renderPost } from '../src/render.mjs';
+import { readGoogleVerificationFiles } from '../src/verification.mjs';
 
 export async function build({ root = process.cwd(), output = path.join(root, 'dist'), base = process.env.BASE_PATH || '/' } = {}) {
   base = basePath(base);
@@ -11,11 +12,14 @@ export async function build({ root = process.cwd(), output = path.join(root, 'di
   if (existsSync(output) && lstatSync(output).isSymbolicLink()) throw Error('Build output cannot be a symlink');
   const posts = loadPosts({ root });
   const pageDates = JSON.parse(await readFile(path.join(root, 'src/pages.json'), 'utf8'));
+  const verification = readGoogleVerificationFiles(root);
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
   await cp(path.join(root, 'Assets'), path.join(output, 'Assets'), { recursive: true });
   await cp(path.join(root, 'src/assets'), path.join(output, 'Assets'), { recursive: true });
   for (const name of ['favicon.ico', 'CNAME']) await cp(path.join(root, name), path.join(output, name));
+  // Verification responses are exact static proofs, not rendered site pages.
+  for (const { name, bytes } of verification) await writeFile(path.join(output, name), bytes);
   const pages = [];
   for (const [route, modified] of Object.entries(pageDates)) {
     const file = route === '/' ? 'index.html' : route.slice(1);

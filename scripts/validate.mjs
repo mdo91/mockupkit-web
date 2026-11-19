@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { parse } from 'parse5';
 import { loadPosts, origin } from '../src/posts.mjs';
 import { basePath, walkNodes } from '../src/render.mjs';
+import { googleVerificationFiles, readGoogleVerificationFiles } from '../src/verification.mjs';
 
 function files(directory) { return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
   const file = path.join(directory, entry.name);
@@ -18,9 +19,11 @@ const fail = (condition, message) => { if (!condition) throw Error(message); };
 export function validate({ root = process.cwd(), directory = path.join(root, 'dist'), base = process.env.BASE_PATH || '/' } = {}) {
   base = basePath(base);
   fail(existsSync(directory) && !lstatSync(directory).isSymbolicLink(), 'Build the site before validation');
+  const proofs = readGoogleVerificationFiles(root), builtProofs = readGoogleVerificationFiles(directory);
+  for (const { name, bytes } of proofs) fail(builtProofs.find(proof => proof.name === name)?.bytes.equals(bytes), `${name}: built verification proof differs from its original bytes`);
   const posts = loadPosts({ root });
   const pages = new Map();
-  for (const file of files(directory).filter(file => file.endsWith('.html'))) {
+  for (const file of files(directory).filter(file => file.endsWith('.html') && !googleVerificationFiles.includes(path.relative(directory, file).split(path.sep).join('/')))) {
     const relative = path.relative(directory, file).split(path.sep).join('/');
     const route = `/${relative}`.replace(/index\.html$/, '');
     const document = parse(readFileSync(file, 'utf8'));

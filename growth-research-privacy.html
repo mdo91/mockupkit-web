@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18339507708"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18339507708');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Growth research privacy | Damas Technologies</title>
+  <meta name="description" content="How Damas Technologies accesses, uses, stores, and shares Google research data for MockupKitGrowthResearch.">
+  <link rel="canonical" href="https://mockupkits.com/growth-research-privacy.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/Assets/blog.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Growth research privacy">
+  <meta property="og:description" content="How Damas Technologies accesses, uses, stores, and shares Google research data for MockupKitGrowthResearch.">
+  <meta property="og:url" content="https://mockupkits.com/growth-research-privacy.html">
+  <meta property="og:image" content="https://mockupkits.com/Assets/logo.png">
+  <meta property="og:site_name" content="Mockup Kit">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/"><img src="/Assets/logo.png" alt="Mockup Kit logo"><span>Mockup Kit</span></a>
+      <nav aria-label="Research navigation"><a class="back-link" href="/growth-research.html">Research overview</a></nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <article class="doc prose">
+      <h1>Growth research privacy</h1>
+      <p class="meta">MockupKitGrowthResearch · Damas Technologies · Updated November 19, 2026</p>
+      <p>This policy covers the owner-operated <a href="/growth-research.html">research tool</a>, separately from the <a href="/privacy-policy.html">native Mac app</a>.</p>
+      <h2>Data and purpose</h2>
+      <p>With the operator’s authorization, the tool reads Search Console query, page, device, country, click, impression, click-through-rate, and average-position data for the Mockup Kit website. It requests keyword ideas and historical demand metrics through Google Ads Keyword Planner. Research helps select and improve app-creator guides.</p>
+      <p>Search Console permission is read-only. Google’s Ads OAuth permission is broad, but the runner permits only keyword-research operations, without campaign changes, billing changes, or advertising spend. Authorization details and refresh grants maintain the approved connections.</p>
+      <h2>Processing and storage</h2>
+      <p>The workflow runs in private GitHub Actions. Authorization grants and current state are stored in encrypted private artifacts, with keys held separately in repository secrets. Credentials are decrypted temporarily during authorized jobs; research reports and editorial artifacts remain private.</p>
+      <p>Selected performance summaries and keyword research, including relevant query text and page URLs, are supplied to a managed ChatGPT subscription session to draft guides. Query text is not guaranteed to be anonymous. OAuth credentials are excluded from model inputs. The runner does not train or fine-tune models; OpenAI’s processing follows its applicable terms and the subscription account’s data controls. A human reviews and approves article revisions before publication.</p>
+      <p>These web pages retain the site’s existing Google tag. Google may receive page-visit, browser, and network information and use cookies under its <a href="https://policies.google.com/privacy">privacy policy</a>. Website measurement is separate from the OAuth research connection.</p>
+      <h2>Retention and your controls</h2>
+      <p>Research artifacts follow their configured retention settings. Refreshed state, authorization material, and operating history may be retained longer while the tool is maintained; there is no single automatic deletion period for all records.</p>
+      <p>Revoke the tool’s access through <a href="https://myaccount.google.com/permissions">Google Account permissions</a> to stop future authorized reads. Revocation does not automatically delete cached research, operating history, or published guides. To request removal of retained research records or ask about data handling, contact <a href="mailto:hi@damastechnologies.com">hi@damastechnologies.com</a>.</p>
+    </article>
+  </main>
+  <footer><div class="wrap"><p><a href="/growth-research.html">Research overview</a> · <a href="/growth-research-privacy.html">Research privacy</a> · <a href="/privacy-policy.html">Mac app privacy</a> · <a href="/editorial-policy.html">Editorial policy</a></p><p>© 2026 Damas Technologies.</p></div></footer>
+</body>
+</html>

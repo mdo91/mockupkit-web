@@ -8,6 +8,7 @@ import { parse } from 'parse5';
 import { build } from '../scripts/build.mjs';
 import { validate } from '../scripts/validate.mjs';
 import { walkNodes } from '../src/render.mjs';
+import { googleVerificationFiles } from '../src/verification.mjs';
 
 const tagId = 'AW-18339507708';
 const attr = (node, name) => node.attrs?.find(item => item.name === name)?.value;
@@ -29,7 +30,7 @@ test('production builds preserve Google bindings, verification tags, canonical r
   const repository = process.cwd(), root = await mkdtemp(path.join(os.tmpdir(), 'mockupkit-bindings-'));
   const names = ['index.html', 'support.html', 'terms-of-use.html', 'privacy-policy.html', 'editorial-policy.html', 'growth-research.html', 'growth-research-privacy.html'];
   try {
-    for (const name of [...names, 'CNAME', 'favicon.ico', 'Assets', 'content']) await cp(path.join(repository, name), path.join(root, name), { recursive: true });
+    for (const name of [...names, ...googleVerificationFiles, 'CNAME', 'favicon.ico', 'Assets', 'content']) await cp(path.join(repository, name), path.join(root, name), { recursive: true });
     await mkdir(path.join(root, 'src'), { recursive: true });
     await cp(path.join(repository, 'src/assets'), path.join(root, 'src/assets'), { recursive: true });
     await cp(path.join(repository, 'src/pages.json'), path.join(root, 'src/pages.json'));
@@ -39,6 +40,11 @@ test('production builds preserve Google bindings, verification tags, canonical r
       validate({ root, base });
       assert.equal((await readFile(path.join(root, 'dist/CNAME'), 'utf8')).trim(), 'mockupkits.com');
       assert.equal((await readFile(path.join(root, 'dist/robots.txt'), 'utf8')).match(/Sitemap:\s*(\S+)/)[1], 'https://mockupkits.com/sitemap.xml');
+      const sitemap = await readFile(path.join(root, 'dist/sitemap.xml'), 'utf8');
+      for (const name of googleVerificationFiles) {
+        assert.deepEqual(await readFile(path.join(root, 'dist', name)), await readFile(path.join(repository, name)), `${name}: Google ownership proof bytes must be preserved at every base`);
+        assert.ok(!sitemap.includes(name), 'Ownership proofs must not become sitemap content');
+      }
       for (const [name, source] of original) {
         const built = await readFile(path.join(root, 'dist', name), 'utf8');
         analytics(built, name);

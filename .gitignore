@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.work/
+.growth-private/
+.growth/
+.tools/
+coverage/
+.DS_Store

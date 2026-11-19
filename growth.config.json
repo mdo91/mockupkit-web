@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "siteUrl": "https://mockupkits.com/",
+  "repository": "mdo91/mockupkit-web",
+  "runnerRepository": "mdo91/mockupkit-growth-runner",
+  "appStoreId": "6784220988",
+  "appStoreUrl": "https://apps.apple.com/app/id6784220988",
+  "profiles": {
+    "searchConsole": "mockupkit-searchconsole",
+    "keywords": "mockupkit-keywords"
+  },
+  "searchConsoleScope": "https://www.googleapis.com/auth/webmasters.readonly",
+  "adsScope": "https://www.googleapis.com/auth/adwords",
+  "keywordNetwork": "GOOGLE_SEARCH",
+  "keywordGeography": "WORLDWIDE",
+  "keywordCacheDays": 30,
+  "privateReportRetentionDays": 90,
+  "schedule": {
+    "timeZone": "Europe/Istanbul",
+    "localTime": "09:00",
+    "utcCron": "0 6 * * *",
+    "recoveryUtcCrons": [
+      "17 6 * * *",
+      "37 6 * * *"
+    ],
+    "maxSubstantialPublicationsPerDay": 1,
+    "maxGuidesPerLocalePerDay": 1,
+    "maxBatchesPerDay": 1
+  },
+  "generationAuthMode": "chatgpt",
+  "publication": {
+    "mode": "human-approval",
+    "approvers": [
+      "mdo91"
+    ],
+    "pendingOnlyUtcCron": "7 * * * *"
+  },
+  "markets": [
+    {
+      "locale": "en",
+      "name": "English",
+      "googleLanguageCode": "en",
+      "languageId": "1000",
+      "pathPrefix": "/",
+      "seeds": [
+        "app store screenshots on mac",
+        "app store screenshot mockup tool",
+        "iphone screenshot dimensions app store",
+        "app store screenshot backgrounds",
+        "app store screenshot gradients",
+        "app store screenshot headline layout",
+        "add overlays to app store screenshots",
+        "app store screenshot rounded corners",
+        "product page header app store",
+        "app store search results creative asset",
+        "app store universal creative asset",
+        "app store creative asset safe area",
+        "app store screenshot localization",
+        "localized app store screenshot export",
+        "right to left app store screenshots",
+        "app store png no alpha channel",
+        "opaque rgb app store screenshot export",
+        "batch export app store screenshots",
+        "rounded image png mac",
+        "match app store screenshot colors"
+      ]
+    }
+  ],
+  "references": {
+    "helpfulContent": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "aiContent": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content",
+    "keywordTargeting": "https://developers.google.com/google-ads/api/docs/keyword-planning/generate-keyword-ideas",
+    "searchConsole": "https://developers.google.com/webmaster-tools/v1/searchanalytics/query",
+    "verifiedAt": "2026-11-19"
+  }
+}

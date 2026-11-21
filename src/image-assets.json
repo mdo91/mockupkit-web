@@ -1,0 +1,444 @@
+{
+  "/Assets/asset-1.png" : {
+    "fallback" : {
+      "bytes" : 157077,
+      "height" : 750,
+      "src" : "/Assets/images/app-store-screenshot-editor-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 900,
+    "name" : "app-store-screenshot-editor",
+    "original" : {
+      "bytes" : 810060,
+      "format" : "public.png",
+      "height" : 900,
+      "width" : 1440
+    },
+    "webp" : [
+      {
+        "bytes" : 13960,
+        "height" : 300,
+        "src" : "/Assets/images/app-store-screenshot-editor-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 27084,
+        "height" : 500,
+        "src" : "/Assets/images/app-store-screenshot-editor-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 45704,
+        "height" : 750,
+        "src" : "/Assets/images/app-store-screenshot-editor-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 63524,
+        "height" : 900,
+        "src" : "/Assets/images/app-store-screenshot-editor-1440.webp",
+        "type" : "image/webp",
+        "width" : 1440
+      }
+    ],
+    "width" : 1440
+  },
+  "/Assets/asset-2.png" : {
+    "fallback" : {
+      "bytes" : 179217,
+      "height" : 750,
+      "src" : "/Assets/images/app-store-screenshot-gradient-overlay-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 900,
+    "name" : "app-store-screenshot-gradient-overlay",
+    "original" : {
+      "bytes" : 888425,
+      "format" : "public.png",
+      "height" : 900,
+      "width" : 1440
+    },
+    "webp" : [
+      {
+        "bytes" : 16432,
+        "height" : 300,
+        "src" : "/Assets/images/app-store-screenshot-gradient-overlay-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 32030,
+        "height" : 500,
+        "src" : "/Assets/images/app-store-screenshot-gradient-overlay-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 56124,
+        "height" : 750,
+        "src" : "/Assets/images/app-store-screenshot-gradient-overlay-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 79184,
+        "height" : 900,
+        "src" : "/Assets/images/app-store-screenshot-gradient-overlay-1440.webp",
+        "type" : "image/webp",
+        "width" : 1440
+      }
+    ],
+    "width" : 1440
+  },
+  "/Assets/example.png" : {
+    "crop" : {
+      "height" : 2650,
+      "width" : 4240,
+      "x" : 480,
+      "y" : 110
+    },
+    "fallback" : {
+      "bytes" : 108581,
+      "height" : 750,
+      "src" : "/Assets/images/iphone-screenshot-gradient-example-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 2650,
+    "name" : "iphone-screenshot-gradient-example",
+    "original" : {
+      "bytes" : 3267870,
+      "format" : "public.png",
+      "height" : 2880,
+      "width" : 5120
+    },
+    "webp" : [
+      {
+        "bytes" : 8808,
+        "height" : 300,
+        "src" : "/Assets/images/iphone-screenshot-gradient-example-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 17222,
+        "height" : 500,
+        "src" : "/Assets/images/iphone-screenshot-gradient-example-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 27922,
+        "height" : 750,
+        "src" : "/Assets/images/iphone-screenshot-gradient-example-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 37370,
+        "height" : 1000,
+        "src" : "/Assets/images/iphone-screenshot-gradient-example-1600.webp",
+        "type" : "image/webp",
+        "width" : 1600
+      }
+    ],
+    "width" : 4240
+  },
+  "/Assets/localization.png" : {
+    "fallback" : {
+      "bytes" : 157993,
+      "height" : 940,
+      "src" : "/Assets/images/localized-app-store-creative-studio-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 1884,
+    "name" : "localized-app-store-creative-studio",
+    "original" : {
+      "bytes" : 348104,
+      "format" : "public.jpeg",
+      "height" : 1884,
+      "width" : 2404
+    },
+    "webp" : [
+      {
+        "bytes" : 12338,
+        "height" : 376,
+        "src" : "/Assets/images/localized-app-store-creative-studio-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 25316,
+        "height" : 627,
+        "src" : "/Assets/images/localized-app-store-creative-studio-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 42242,
+        "height" : 940,
+        "src" : "/Assets/images/localized-app-store-creative-studio-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 59668,
+        "height" : 1254,
+        "src" : "/Assets/images/localized-app-store-creative-studio-1600.webp",
+        "type" : "image/webp",
+        "width" : 1600
+      }
+    ],
+    "width" : 2404
+  },
+  "/Assets/logo.png" : {
+    "fallback" : {
+      "bytes" : 4662,
+      "height" : 128,
+      "src" : "/Assets/images/mockup-kit-logo-128.png",
+      "type" : "image/png",
+      "width" : 128
+    },
+    "height" : 1024,
+    "name" : "mockup-kit-logo",
+    "original" : {
+      "bytes" : 29736,
+      "format" : "public.png",
+      "height" : 1024,
+      "width" : 1024
+    },
+    "webp" : [
+      {
+        "bytes" : 864,
+        "height" : 64,
+        "src" : "/Assets/images/mockup-kit-logo-64.webp",
+        "type" : "image/webp",
+        "width" : 64
+      },
+      {
+        "bytes" : 1730,
+        "height" : 128,
+        "src" : "/Assets/images/mockup-kit-logo-128.webp",
+        "type" : "image/webp",
+        "width" : 128
+      }
+    ],
+    "width" : 1024
+  },
+  "/Assets/main.png" : {
+    "crop" : {
+      "height" : 2650,
+      "width" : 4240,
+      "x" : 480,
+      "y" : 110
+    },
+    "fallback" : {
+      "bytes" : 120252,
+      "height" : 750,
+      "src" : "/Assets/images/iphone-screenshot-mockup-workspace-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 2650,
+    "name" : "iphone-screenshot-mockup-workspace",
+    "original" : {
+      "bytes" : 3764261,
+      "format" : "public.png",
+      "height" : 2880,
+      "width" : 5120
+    },
+    "webp" : [
+      {
+        "bytes" : 10828,
+        "height" : 300,
+        "src" : "/Assets/images/iphone-screenshot-mockup-workspace-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 20382,
+        "height" : 500,
+        "src" : "/Assets/images/iphone-screenshot-mockup-workspace-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 33464,
+        "height" : 750,
+        "src" : "/Assets/images/iphone-screenshot-mockup-workspace-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 44782,
+        "height" : 1000,
+        "src" : "/Assets/images/iphone-screenshot-mockup-workspace-1600.webp",
+        "type" : "image/webp",
+        "width" : 1600
+      }
+    ],
+    "width" : 4240
+  },
+  "/Assets/search-result.png" : {
+    "crop" : {
+      "height" : 2300,
+      "width" : 3580,
+      "x" : 770,
+      "y" : 320
+    },
+    "fallback" : {
+      "bytes" : 119900,
+      "height" : 771,
+      "src" : "/Assets/images/app-store-header-search-results-studio-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 2300,
+    "name" : "app-store-header-search-results-studio",
+    "original" : {
+      "bytes" : 9989431,
+      "format" : "public.png",
+      "height" : 2880,
+      "width" : 5120
+    },
+    "webp" : [
+      {
+        "bytes" : 9462,
+        "height" : 308,
+        "src" : "/Assets/images/app-store-header-search-results-studio-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 19718,
+        "height" : 514,
+        "src" : "/Assets/images/app-store-header-search-results-studio-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 36004,
+        "height" : 771,
+        "src" : "/Assets/images/app-store-header-search-results-studio-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 51118,
+        "height" : 1028,
+        "src" : "/Assets/images/app-store-header-search-results-studio-1600.webp",
+        "type" : "image/webp",
+        "width" : 1600
+      }
+    ],
+    "width" : 3580
+  },
+  "/Assets/store-preview.png" : {
+    "crop" : {
+      "height" : 900,
+      "width" : 790,
+      "x" : 0,
+      "y" : 530
+    },
+    "fallback" : {
+      "bytes" : 86845,
+      "height" : 900,
+      "src" : "/Assets/images/app-store-search-card-preview-790.jpg",
+      "type" : "image/jpeg",
+      "width" : 790
+    },
+    "height" : 900,
+    "name" : "app-store-search-card-preview",
+    "original" : {
+      "bytes" : 339424,
+      "format" : "public.jpeg",
+      "height" : 1884,
+      "width" : 2404
+    },
+    "webp" : [
+      {
+        "bytes" : 6958,
+        "height" : 365,
+        "src" : "/Assets/images/app-store-search-card-preview-320.webp",
+        "type" : "image/webp",
+        "width" : 320
+      },
+      {
+        "bytes" : 11152,
+        "height" : 547,
+        "src" : "/Assets/images/app-store-search-card-preview-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 16042,
+        "height" : 729,
+        "src" : "/Assets/images/app-store-search-card-preview-640.webp",
+        "type" : "image/webp",
+        "width" : 640
+      },
+      {
+        "bytes" : 22014,
+        "height" : 900,
+        "src" : "/Assets/images/app-store-search-card-preview-790.webp",
+        "type" : "image/webp",
+        "width" : 790
+      }
+    ],
+    "width" : 790
+  },
+  "/Assets/templates.png" : {
+    "fallback" : {
+      "bytes" : 154700,
+      "height" : 1040,
+      "src" : "/Assets/images/app-store-category-template-gallery-1200.jpg",
+      "type" : "image/jpeg",
+      "width" : 1200
+    },
+    "height" : 1300,
+    "name" : "app-store-category-template-gallery",
+    "original" : {
+      "bytes" : 177337,
+      "format" : "public.jpeg",
+      "height" : 1300,
+      "width" : 1500
+    },
+    "webp" : [
+      {
+        "bytes" : 12890,
+        "height" : 416,
+        "src" : "/Assets/images/app-store-category-template-gallery-480.webp",
+        "type" : "image/webp",
+        "width" : 480
+      },
+      {
+        "bytes" : 26230,
+        "height" : 693,
+        "src" : "/Assets/images/app-store-category-template-gallery-800.webp",
+        "type" : "image/webp",
+        "width" : 800
+      },
+      {
+        "bytes" : 41438,
+        "height" : 1040,
+        "src" : "/Assets/images/app-store-category-template-gallery-1200.webp",
+        "type" : "image/webp",
+        "width" : 1200
+      },
+      {
+        "bytes" : 61516,
+        "height" : 1300,
+        "src" : "/Assets/images/app-store-category-template-gallery-1500.webp",
+        "type" : "image/webp",
+        "width" : 1500
+      }
+    ],
+    "width" : 1500
+  }
+}

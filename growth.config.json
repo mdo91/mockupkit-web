@@ -29,11 +29,12 @@
   },
   "generationAuthMode": "chatgpt",
   "publication": {
-    "mode": "human-approval",
+    "mode": "automated-review",
     "approvers": [
       "mdo91"
     ],
-    "pendingOnlyUtcCron": "7 * * * *"
+    "pendingOnlyUtcCron": "7 * * * *",
+    "maxReviewAttempts": 2
   },
   "markets": [
     {

@@ -36,14 +36,14 @@
   <main id="main" class="wrap">
     <article class="doc prose">
       <h1>Growth research privacy</h1>
-      <p class="meta">Mockup Kit Growth Research · Damas Technologies · Updated November 19, 2026</p>
+      <p class="meta">Mockup Kit Growth Research · Damas Technologies · Updated November 21, 2026</p>
       <p>This policy covers the owner-operated <a href="/growth-research.html">research tool</a>, separately from the <a href="/privacy-policy.html">native Mac app</a>.</p>
       <h2>Data and purpose</h2>
       <p>With the operator’s authorization, the tool reads Search Console query, page, device, country, click, impression, click-through-rate, and average-position data for the Mockup Kit website. It requests keyword ideas and historical demand metrics through Google Ads Keyword Planner. Research helps select and improve app-creator guides.</p>
       <p>Search Console permission is read-only. Google’s Ads OAuth permission is broad, but the runner permits only keyword-research operations, without campaign changes, billing changes, or advertising spend. Authorization details and refresh grants maintain the approved connections.</p>
       <h2>Processing and storage</h2>
       <p>The workflow runs in private GitHub Actions. Authorization grants and current state are stored in encrypted private artifacts, with keys held separately in repository secrets. Credentials are decrypted temporarily during authorized jobs; research reports and editorial artifacts remain private.</p>
-      <p>Selected performance summaries and keyword research, including relevant query text and page URLs, are supplied to a managed ChatGPT subscription session to draft guides. Query text is not guaranteed to be anonymous. OAuth credentials are excluded from model inputs. The runner does not train or fine-tune models; OpenAI’s processing follows its applicable terms and the subscription account’s data controls. A human reviews and approves article revisions before publication.</p>
+      <p>Selected performance summaries and keyword research, including relevant query text and page URLs, are supplied to a managed ChatGPT subscription session to draft guides. Draft content and supporting evidence also pass through a separate automated editorial review using that existing managed provider. Query text is not guaranteed to be anonymous. OAuth credentials are excluded from model inputs. The runner does not train or fine-tune models; OpenAI’s processing follows its applicable terms and the subscription account’s data controls. Automated approval applies to the exact article revision alongside required website checks. The owner may also review a revision through the human-approval route; automated approval is not human sign-off.</p>
       <p>These web pages retain the site’s existing Google tag. Google may receive page-visit, browser, and network information and use cookies under its <a href="https://policies.google.com/privacy">privacy policy</a>. Website measurement is separate from the OAuth research connection.</p>
       <h2>Retention and your controls</h2>
       <p>Research artifacts follow their configured retention settings. Refreshed state, authorization material, and operating history may be retained longer while the tool is maintained; there is no single automatic deletion period for all records.</p>

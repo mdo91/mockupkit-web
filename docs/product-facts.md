@@ -2,7 +2,7 @@
 
 The machine-readable source of truth for content generation is [src/content/product-facts.json](../src/content/product-facts.json). Keep it separate from suggested topics and search-demand signals: a query is not evidence that the app supports a feature.
 
-Facts were checked on November 19, 2026 against the native app source, the user's current feature description, and Apple's first-party asset documentation. Native source is linked in the JSON. Public App Store availability for version 2.6.0 has not been confirmed; its new creative studio and the creative-scene versions of localization and preflight must remain labeled upcoming until a maintainer verifies the public release.
+Capability facts were checked on November 19, 2026 against the native app source, the user's current feature description, and Apple's first-party asset documentation. Native source is linked in the JSON. Public availability was separately verified on November 21 through [Apple's US lookup response](https://itunes.apple.com/lookup?id=6784220988&country=us): the Mac listing reports version **2.6.0**, released at `2026-11-19T22:16:52Z`, and its release notes identify the Headers & Search Results studio. The small [dated release evidence](app-store-release-2026-11-21.json) records that observation. Its new creative studio and creative-scene localization/preflight can be described as available. This check does not establish every storefront's availability or add capabilities beyond the maintained native-source evidence.
 
 ## Product and audience
 

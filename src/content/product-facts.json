@@ -7,10 +7,14 @@
   "platform": "macOS",
   "release": {
     "version": "2.6.0",
-    "status": "pending-review",
-    "publicAvailabilityVerified": false,
-    "copyRule": "Describe version 2.6.0 features as upcoming until the public App Store version is verified.",
-    "publicVersion": "2.5.8"
+    "status": "released",
+    "publicAvailabilityVerified": true,
+    "copyRule": "Version 2.6.0 is publicly available in the US Mac App Store, verified on 2026-11-21. Describe the maintained source-backed capabilities as available; do not infer availability in every storefront.",
+    "publicVersion": "2.6.0",
+    "publicReleaseDate": "2026-11-19T22:16:52Z",
+    "publicAvailabilityVerifiedAt": "2026-11-21",
+    "publicAvailabilitySource": "https://itunes.apple.com/lookup?id=6784220988&country=us",
+    "publicStorefront": "us"
   },
   "pricing": {
     "freeSelectedExports": 1,
@@ -49,25 +53,27 @@
     {
       "id": "headers-search-assets",
       "title": "Headers & Search Results studio",
-      "availability": "upcoming-2.6.0",
+      "availability": "available",
       "details": [
         "Create Header, Search Results, and Universal image assets.",
         "Start with six editable category templates: productivity/utilities, health/fitness/wellness, finance/business, AI/developer tools/SaaS, social/lifestyle/entertainment, and games.",
         "Edit image, text, card, badge, and ring layers; move, resize, rotate, reorder, hide, and lock layers.",
         "Use undo/redo and sync background and typography from a screenshot board.",
         "Extend language-specific text/images and localized batch export to the new creative scenes."
-      ]
+      ],
+      "verifiedInVersion": "2.6.0"
     },
     {
       "id": "store-preview",
       "title": "Illustrative store preview",
-      "availability": "upcoming-2.6.0",
+      "availability": "available",
       "details": [
         "Preview artwork inside mock search and product page layouts.",
         "Edit app icon, name, subtitle, and rating for the preview.",
         "Art-safe and crop guides are editor aids excluded from exported artwork.",
         "Preview is illustrative, not a live Apple listing or approval guarantee."
-      ]
+      ],
+      "verifiedInVersion": "2.6.0"
     },
     {
       "id": "localization-export",
@@ -84,12 +90,13 @@
     {
       "id": "creative-preflight",
       "title": "Opaque creative export and preflight",
-      "availability": "upcoming-2.6.0",
+      "availability": "available",
       "details": [
         "Export creative assets as opaque RGB images without an alpha channel.",
         "Check missing content, translations, text overflow, dimensions, and formats.",
         "Preflight does not guarantee Apple acceptance or verify legal ownership of imported artwork."
-      ]
+      ],
+      "verifiedInVersion": "2.6.0"
     },
     {
       "id": "screenshot-preflight",
@@ -250,6 +257,11 @@
       "title": "Version 2.5.8 opaque RGB screenshot rendering",
       "url": "https://github.com/mdo91/mockupkit/blob/f8cd468aaac23b004bb4b839248c444efb5ffce3/Mockuper/Services/StoreMockupExporter.swift",
       "checkedAt": "2026-11-19"
+    },
+    {
+      "title": "Mockup Kit US Mac App Store public release metadata",
+      "url": "https://itunes.apple.com/lookup?id=6784220988&country=us",
+      "checkedAt": "2026-11-21"
     }
   ]
 }

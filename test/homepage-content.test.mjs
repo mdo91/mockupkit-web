@@ -21,7 +21,13 @@ test('homepage gives every maintained capability visible content with its actual
   assert.ok(card.node.childNodes?.some(child=>child.tagName==='h3'&&text(child).trim()),`${capability.id} needs a useful heading`);
   assert.ok(text(card.node).trim().length>60,`${capability.id} needs explanatory content`);
   const release=[...card.ancestors,card.node].find(node=>attr(node,'data-release'));
-  if(capability.availability==='available')assert.equal(release,undefined,`${capability.id} must not be described as upcoming`);
+  if(capability.availability==='available'&&release){
+   assert.equal(facts.release.publicAvailabilityVerified,true,`${capability.id}: a versioned release needs public evidence`);
+   assert.equal(attr(release,'data-release'),capability.verifiedInVersion,`${capability.id}: visible release must match the verified version`);
+   assert.equal(attr(release,'data-availability'),'available',`${capability.id} must not be described as upcoming`);
+   assert.doesNotMatch(text(release),/not yet publicly available|submitted for App Review|Coming in version/i);
+  }
+  else if(capability.availability==='available')assert.equal(release,undefined);
   else{
    assert.equal(attr(release,'data-release'),facts.release.version);
    assert.equal(attr(release,'data-availability'),facts.release.publicAvailabilityVerified?'available':'upcoming');
@@ -55,6 +61,7 @@ test('the hero studio highlight leads to its visible release section and placeme
  assert.equal(text(heading.node).trim(),'Headers & Search Results studio');
  assert.ok(text(highlight.node).includes(text(heading.node).trim()),'The highlight must identify its destination');
  if(!facts.release.publicAvailabilityVerified)assert.match(text(highlight.node),/Coming in 2\.6/);
+ else {assert.match(text(highlight.node),/New in 2\.6/);assert.doesNotMatch(text(highlight.node),/Coming in/i);}
  const list=descendants.find(row=>row.node.tagName==='ul'&&attr(row.node,'aria-label')==='Creative placements');
  assert.ok(list&&visible(list),'Placement tags must be visible to readers and assistive technology');
  assert.deepEqual(list.node.childNodes.filter(node=>node.tagName==='li').map(node=>text(node).trim()),['Header','Search Results','Universal']);

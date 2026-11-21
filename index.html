@@ -20,7 +20,7 @@
   <link rel="icon" href="/Assets/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/Assets/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="apple-touch-icon" href="/Assets/apple-touch-icon.png" sizes="180x180">
-  <link rel="preload" as="image" href="./Assets/asset-1.png">
+  <link rel="preload" as="image" href="./Assets/main.png" fetchpriority="high">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mockup Kit — App Store Screenshot Mockups for Mac">
   <meta property="og:description" content="Compose iPhone screenshot mockups on Mac. One selected export free; Premium unlocks unlimited selected exports and Export All.">
@@ -65,19 +65,6 @@
       "publisher": {
         "@id": "https://mockupkits.com/#organization"
       }
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Mockup Kit: Highlight App Features with Overlays & Stickers",
-      "description": "Watch how to highlight app features in App Store screenshots with Mockup Kit: add PNG overlay images, place stickers, and export polished marketing visuals on Mac.",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/Uu4zBuc3W1o",
-      "contentUrl": "https://www.youtube.com/watch?v=Uu4zBuc3W1o",
-      "thumbnailUrl": "https://i.ytimg.com/vi/Uu4zBuc3W1o/hqdefault.jpg",
-      "uploadDate": "2026-07-24T22:22:31-07:00",
-      "duration": "PT1M10S",
-      "publisher": {
-        "@id": "https://mockupkits.com/#organization"
-      }
     }
   ]
 }
@@ -101,7 +88,6 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#upcoming">New in 2.6</a></li>
-          <li><a href="#demo">Demo</a></li>
           <li><a href="./blog/">Guides</a></li>
           <li><a href="#pricing">Pricing</a></li>
         </ul>
@@ -135,35 +121,13 @@
             </div>
             <p class="hero-pricing">One successful selected export is free. Premium unlocks unlimited selected exports and Export All. Current plans and local prices appear in the purchase sheet.</p>
           </div>
-          <figure class="mock">
-            <img src="./Assets/asset-1.png" alt="Mockup Kit canvas showing an App Store screenshot layout">
+          <figure class="mock app-window capture-main">
+            <img src="./Assets/main.png" width="5120" height="2880" fetchpriority="high" decoding="async" alt="Mockup Kit screenshot workspace with multiple boards, gradient colors, and headline controls">
           </figure>
         </article>
       </div>
     </section>
 
-    <section class="demo-section" id="demo" aria-labelledby="demo-heading">
-      <div class="wrap panel">
-        <h2 id="demo-heading">See it in action</h2>
-        <p class="sub">Watch how to highlight app features with overlays and stickers — from canvas import to export-ready mockup.</p>
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/Uu4zBuc3W1o"
-            title="Mockup Kit demo: highlight app features with PNG overlays, stickers, and export on Mac"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-        <ol class="demo-steps">
-          <li>Add your App Store screenshot to the Mockup Kit canvas</li>
-          <li>Place PNG overlay images to highlight key features</li>
-          <li>Add a short badge when it helps explain a real app feature</li>
-          <li>Export the composition at the selected screenshot dimensions</li>
-        </ol>
-        <a class="video-link" href="https://www.youtube.com/watch?v=Uu4zBuc3W1o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </div>
-    </section>
 
     <section class="section" id="features" aria-labelledby="features-heading">
       <div class="wrap panel">
@@ -207,10 +171,14 @@
             <p>With Premium, Export All saves the set as JPEG. Follow progress, cancel, or retry unfinished items without replacing successful files.</p>
           </article>
         </div>
-        <div class="shots">
-          <figure><img src="./Assets/asset-1.png" loading="lazy" alt="Mockup Kit canvas with screenshot, headline, and background controls"></figure>
-          <figure><img src="./Assets/asset-2.png" loading="lazy" alt="Example screenshot mockup with gradient, headline, and overlay artwork"></figure>
+        <div class="shots" aria-label="Screenshot workspace examples">
+          <figure class="app-window capture-main"><img src="./Assets/main.png" width="5120" height="2880" loading="lazy" decoding="async" alt="Three screenshot boards in Mockup Kit with a teal-to-blue gradient and a benefit headline"></figure>
+          <figure class="app-window capture-example"><img src="./Assets/example.png" width="5120" height="2880" loading="lazy" decoding="async" alt="An iPhone screenshot composition in Mockup Kit with a purple-to-pink gradient"></figure>
         </div>
+        <figure class="feature-capture localization-capture">
+          <img src="./Assets/localization.png" loading="lazy" decoding="async" alt="A localized composition in Mockup Kit with a translated headline and language controls">
+          <figcaption><strong>Give each language its own canvas.</strong> Version 2.6 studio preview: review translated text and app imagery before exporting localized artwork.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -219,6 +187,10 @@
         <span class="tag">Coming in version 2.6.0</span>
         <h2 id="upcoming-heading">Headers &amp; Search Results studio</h2>
         <p class="sub">The next release adds the Headers &amp; Search Results studio and extends your existing localization and batch-export workflow to creative artwork. Version 2.6.0 has been submitted for App Review and is not yet publicly available.</p>
+        <figure class="feature-capture studio-capture">
+          <div class="app-window capture-search-result"><img src="./Assets/search-result.png" width="5120" height="2880" loading="lazy" decoding="async" alt="Mockup Kit’s Headers and Search Results studio with a Product Page Header composition and art-safe guide"></div>
+          <figcaption><strong>Compose for the placement.</strong> Edit your artwork, layers, and art-safe layout in one native workspace.</figcaption>
+        </figure>
         <ul class="placement-tags" aria-label="Creative placements">
           <li>Header</li>
           <li>Search Results</li>
@@ -256,6 +228,16 @@
             <p>Creative export flattens artwork into opaque RGB images without transparency. Preflight checks missing content, translations, text overflow, dimensions, and formats.</p>
             <p>Batch completed creative assets into language folders, follow progress, cancel, or retry unfinished items without replacing successful files. Creative Export All requires Premium.</p>
           </article>
+        </div>
+        <div class="feature-captures" aria-label="Inside the creative studio">
+          <figure class="feature-capture">
+            <img src="./Assets/templates.png" loading="lazy" decoding="async" alt="Mockup Kit’s native template gallery with editable scenes for six app categories">
+            <figcaption><strong>Find your starting point.</strong> Browse six category templates, then make the scene your own.</figcaption>
+          </figure>
+          <figure class="feature-capture">
+            <div class="app-window capture-store-preview"><img src="./Assets/store-preview.png" width="2404" height="1884" loading="lazy" decoding="async" alt="Completed artwork in Mockup Kit’s native illustrative App Store search card"></div>
+            <figcaption><strong>Check the artwork in context.</strong> Use the illustrative Store Preview to review composition and small-size legibility.</figcaption>
+          </figure>
         </div>
         <div class="placement-note">
           <h3>Presets for Apple’s optional creative placements</h3>

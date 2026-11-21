@@ -3,7 +3,7 @@ import { existsSync, lstatSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { origin, loadPosts } from '../src/posts.mjs';
-import { basePath, escapeHtml, prepareDocument, renderIndex, renderPost } from '../src/render.mjs';
+import { basePath, escapeHtml, imageUrls, prepareDocument, renderIndex, renderPost } from '../src/render.mjs';
 import { readGoogleVerificationFiles } from '../src/verification.mjs';
 
 export async function build({ root = process.cwd(), output = path.join(root, 'dist'), base = process.env.BASE_PATH || '/' } = {}) {
@@ -37,7 +37,13 @@ export async function build({ root = process.cwd(), output = path.join(root, 'di
     await writeFile(path.join(output, route, 'index.html'), prepareDocument(renderPost(post, posts), { route, base, root }));
     pages.push({ route, modified: post.updatedAt });
   }
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(({ route, modified }) => `  <url><loc>${escapeHtml(origin + route)}</loc><lastmod>${modified}</lastmod></url>`).join('\n')}\n</urlset>\n`;
+  const sitemapEntries = [];
+  for (const { route, modified } of pages) {
+    const file = path.join(output, route === '/' ? 'index.html' : route.endsWith('/') ? `${route.slice(1)}index.html` : route.slice(1));
+    const images = imageUrls(await readFile(file, 'utf8'), { base });
+    sitemapEntries.push(`  <url><loc>${escapeHtml(origin + route)}</loc><lastmod>${modified}</lastmod>${images.map(url => `<image:image><image:loc>${escapeHtml(url)}</image:loc></image:image>`).join('')}</url>`);
+  }
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${sitemapEntries.join('\n')}\n</urlset>\n`;
   await writeFile(path.join(output, 'sitemap.xml'), sitemap);
   await writeFile(path.join(output, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
   await writeFile(path.join(output, '.nojekyll'), '');

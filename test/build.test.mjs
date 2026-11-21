@@ -14,6 +14,7 @@ async function fixture() {
   const root = await mkdtemp(path.join(os.tmpdir(), 'mockupkit-build-'));
   await mkdir(path.join(root, 'content/guides/en'), { recursive: true });
   await mkdir(path.join(root, 'src/assets'), { recursive: true });
+  await cp(new URL('../src/image-assets.json', import.meta.url), path.join(root, 'src/image-assets.json'));
   await mkdir(path.join(root, 'blog'), { recursive: true });
   await cp(new URL('../Assets', import.meta.url), path.join(root, 'Assets'), { recursive: true });
   await cp(new URL('../favicon.ico', import.meta.url), path.join(root, 'favicon.ico'));

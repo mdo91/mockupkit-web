@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {parse} from 'parse5';
+import {prepareDocument} from '../src/render.mjs';
 
 const facts=JSON.parse(readFileSync('src/content/product-facts.json','utf8'));
 function inspect(source){
@@ -65,4 +66,33 @@ test('the hero studio highlight leads to its visible release section and placeme
  const list=descendants.find(row=>row.node.tagName==='ul'&&attr(row.node,'aria-label')==='Creative placements');
  assert.ok(list&&visible(list),'Placement tags must be visible to readers and assistive technology');
  assert.deepEqual(list.node.childNodes.filter(node=>node.tagName==='li').map(node=>text(node).trim()),['Header','Search Results','Universal']);
+});
+
+test('visible and structured FAQ answers agree with the verified public studio release',()=>{
+ const source=readFileSync('index.html','utf8');
+ for(const html of [source,prepareDocument(source,{route:'/',base:'/'})]){
+ const rows=inspect(html);
+ const faqRows=rows.filter(row=>attr(row.node,'class')?.split(/\s+/).includes('faq-item')&&visible(row));
+ const answer=faqRows.find(row=>row.node.childNodes?.some(child=>child.tagName==='h3'&&text(child).trim()==='Is the new studio available now?'));
+ assert.ok(answer,'The studio availability question must remain visible');
+ assert.equal(facts.release.publicAvailabilityVerified,true);
+ const retired=/submitted for App Review|currently lists version 2\.5\.8|after approval and release|not yet publicly available/i;
+ const verifyCurrent=value=>{
+  assert.ok(value.includes(facts.release.publicVersion),'Availability answer must identify the verified public version');
+  assert.match(value,/US Mac App Store/);
+  assert.doesNotMatch(value,retired);
+ };
+ verifyCurrent(text(answer.node));
+ for(const row of faqRows)assert.doesNotMatch(text(row.node),retired);
+ const inspectSchema=value=>{
+  if(!value||typeof value!=='object')return;
+  if(Array.isArray(value)){for(const item of value)inspectSchema(item);return;}
+  if([value['@type']].flat().includes('FAQPage'))for(const question of [value.mainEntity].flat().filter(Boolean)){
+   const answers=[question.acceptedAnswer].flat().filter(Boolean);
+   for(const item of answers){assert.doesNotMatch(String(item.text||''),retired);if(question.name==='Is the new studio available now?')verifyCurrent(String(item.text||''));}
+  }
+  for(const child of Object.values(value))if(child&&typeof child==='object')inspectSchema(child);
+ };
+ for(const row of rows.filter(row=>row.node.tagName==='script'&&attr(row.node,'type')==='application/ld+json'))inspectSchema(JSON.parse(text(row.node)));
+ }
 });

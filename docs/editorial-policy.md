@@ -11,12 +11,14 @@ Check the existing guide inventory before proposing a page. Improve the existing
 ## Prepare a reviewable draft
 
 - Read [product facts](product-facts.md) and [the fact JSON](../src/content/product-facts.json).
-- Cite current Apple documentation for dimensions, formats, eligibility, and requirements. Label version 2.6.0 capabilities upcoming until public availability is verified.
+- Cite current Apple documentation for dimensions, formats, eligibility, and requirements. Use the dated public-release evidence in product facts: version 2.6.0 was verified in the US Mac App Store on November 21. Future unverified features remain labeled upcoming.
 - Give the reader concrete steps or examples with a clear outcome. Keep useful color recipes, screenshots, and filenames when they support that outcome.
 - Separate design advice from measured results. Do not invent conversion percentages, reviews, testimonials, author credentials, performance measurements, or Apple endorsement.
 - Explain that session-only projects must be exported before quitting. Do not promise saved/reopenable projects or cloud sync.
 - Keep titles, descriptions, alt text, dates, and structured data accurate and consistent with visible content. Metadata has the same factual-review standard as prose.
-- New and materially revised content goes through a pull request. AI and automation may assist preparation, but checks do not replace editorial fact review. Do not mark a human review completed unless it actually happened.
+- New and materially revised content goes through a pull request. A separate automated editorial review checks its exact revision against product facts, sources, existing coverage, metadata and images before the runner may merge it. Required website CI and repository protections also apply. Do not describe an automated review as human review.
+
+The runner may automatically merge only its reserved, independently validated guide files. Code, assets, configuration and unrelated pull requests remain outside that publication scope. Review approval is bound to the exact content revision; changes invalidate it. At most two review attempts are allowed for the reserved guide, including retries. A rejection, missing review evidence or exhausted attempt budget holds publication without creating another daily guide or resetting usage. An owner may still approve the exact revision through the documented human-review route; that is recorded separately from automated approval.
 
 ## Keep the answer concise
 

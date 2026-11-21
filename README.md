@@ -43,7 +43,7 @@ The first command is offline. Real collection requires dedicated `mockupkit-sear
 
 Reports and keyword caches live in ignored `.growth/` with private filesystem modes. Never commit them, `.tools/`, account identifiers, credentials, or model sessions. Fixture reports remain explicitly marked and cannot establish hosted readiness.
 
-The writer changes at most one substantive English guide per day. Independent validation precedes the content PR. An approving review from **mdo91 on the exact current commit** is required before the publisher merges it; green CI alone is insufficient. Date corrections produce a new revision and require approval again. The publisher verifies the exact Pages deployment and live source hash, canonical, sitemap and discovery links. A deployment is not proof of Google indexing or ranking improvement.
+The writer changes at most one substantive English guide per day. Independent validation precedes the content PR. A separate automated editorial review must approve the **exact current revision** before the publisher may merge its reserved guide files; required website CI and repository protections must also pass. At most two review attempts are allowed per reserved guide, including retries. Date or content changes invalidate prior automated approval. Missing evidence or exhausted reviews hold publication without another daily guide or a usage reset. Owner approval by `mdo91` remains a separately recorded review route. This guide-only publisher does not automatically merge code, assets, configuration or unrelated PRs. The publisher verifies the exact Pages deployment and live source hash, canonical, sitemap and discovery links. A deployment is not proof of Google indexing or ranking improvement.
 
 ## Deployment
 

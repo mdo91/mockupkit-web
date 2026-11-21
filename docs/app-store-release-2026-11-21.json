@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-21",
+  "source": "https://itunes.apple.com/lookup?id=6784220988&country=us",
+  "storefront": "us",
+  "trackId": 6784220988,
+  "trackName": "Mockup Kit - Store Screenshots",
+  "kind": "mac-software",
+  "version": "2.6.0",
+  "currentVersionReleaseDate": "2026-11-19T22:16:52Z",
+  "releaseNotesMention": "Headers & Search Results studio",
+  "scope": "Public release availability only. Detailed capability evidence remains in the maintained native-source references."
+}

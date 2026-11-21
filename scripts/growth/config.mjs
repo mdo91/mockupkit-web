@@ -6,6 +6,11 @@ import { resolve } from 'node:path';
 export const root = fileURLToPath(new URL('../../', import.meta.url));
 export const config = JSON.parse(readFileSync(resolve(root, 'growth.config.json'), 'utf8'));
 if (config.siteUrl !== 'https://mockupkits.com/' || config.profiles.searchConsole !== 'mockupkit-searchconsole' || config.profiles.keywords !== 'mockupkit-keywords') throw new Error('Unexpected Mockup Kit property/profile configuration');
+export function validatePublicationPolicy(publication) {
+  if (!publication || typeof publication !== 'object' || Array.isArray(publication) || publication.mode !== 'automated-review' || publication.maxReviewAttempts !== 2 || !Array.isArray(publication.approvers) || publication.approvers.length !== 1 || publication.approvers[0] !== 'mdo91' || publication.pendingOnlyUtcCron !== '7 * * * *') throw new Error('Unexpected Mockup Kit publication review policy');
+  return publication;
+}
+validatePublicationPolicy(config.publication);
 export const markets = Object.freeze(config.markets);
 export function marketFor(locale) {
   const market = markets.find((entry) => entry.locale === locale);

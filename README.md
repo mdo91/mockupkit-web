@@ -15,6 +15,14 @@ npm run build
 
 The build writes only `dist/`. Preview it with `python3 -m http.server 4173 --directory dist`. To verify repository-path assets, use `BASE_PATH=/mockupkit-web/ npm run build`; production canonical URLs remain on `https://mockupkits.com/`.
 
+## Image delivery
+
+The build uses `src/image-assets.json` to turn known marketing images into responsive WebP pictures with smaller JPEG/PNG fallbacks. Original image URLs remain available, including those referenced by guide Markdown. Crops are baked into the delivered files; dimensions, alt text, eager hero loading, lazy feature images, and matching responsive preloads are preserved. The image sitemap and social metadata reference descriptive, optimized fallback URLs.
+
+Generated files in `Assets/images/` are committed, so regular builds need no image encoder or extra dependency. To regenerate them on macOS, install `cwebp` (`brew install webp`) and run `swift scripts/optimize-images.swift`. Add new source images and their visible crop to that script before regenerating. It converts pixels to sRGB, strips source metadata, and never upscales images. CI checks file signatures, dimensions, responsive URLs, preload matching, and transfer-size budgets.
+
+See [Google's image SEO guidance](https://developers.google.com/search/docs/appearance/google-images) for these publishing practices.
+
 ## Content
 
 The three existing guide URLs remain under `/blog/`. Their sources are Markdown in `content/guides/en/`; a shared parser supplies safe rendering, metadata validation, related links and source hashes. The generator assembles the blog index, homepage article links, structured data, and sitemap. Published pages include visible authorship, sources, and accurate publication/update dates. Existing publication identities survive substantive updates.

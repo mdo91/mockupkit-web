@@ -3,6 +3,7 @@ import path from 'node:path';
 import { Marked } from 'marked';
 import { parse, serialize } from 'parse5';
 import { origin, parseSwatches } from './posts.mjs';
+import { applyResponsiveImages } from './images.mjs';
 
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const json = value => JSON.stringify(value).replaceAll('<', '\\u003c').replaceAll('\u2028', '\\u2028').replaceAll('\u2029', '\\u2029');
@@ -102,6 +103,19 @@ function setAttr(node, name, value) {
 }
 export function imageSize(bytes) {
   if (bytes.length > 24 && bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))) return [bytes.readUInt32BE(16), bytes.readUInt32BE(20)];
+  if (bytes.length >= 30 && bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WEBP') {
+    for (let offset = 12; offset + 8 <= bytes.length;) {
+      const kind = bytes.toString('ascii', offset, offset + 4), length = bytes.readUInt32LE(offset + 4), start = offset + 8;
+      if (start + length > bytes.length) break;
+      if (kind === 'VP8X' && length >= 10) return [1 + bytes.readUIntLE(start + 4, 3), 1 + bytes.readUIntLE(start + 7, 3)];
+      if (kind === 'VP8 ' && length >= 10 && bytes.subarray(start + 3, start + 6).equals(Buffer.from([0x9d, 0x01, 0x2a]))) return [bytes.readUInt16LE(start + 6) & 0x3fff, bytes.readUInt16LE(start + 8) & 0x3fff];
+      if (kind === 'VP8L' && length >= 5 && bytes[start] === 0x2f) {
+        const bits = bytes.readUInt32LE(start + 1);
+        return [1 + (bits & 0x3fff), 1 + ((bits >>> 14) & 0x3fff)];
+      }
+      offset = start + length + (length % 2);
+    }
+  }
   if (bytes[0] === 0xff && bytes[1] === 0xd8) {
     for (let offset = 2; offset + 9 < bytes.length;) {
       if (bytes[offset] !== 0xff) break;
@@ -135,6 +149,14 @@ export function prepareDocument(html, { route, base = '/', root = process.cwd(),
   walkNodes(document, node => {
     if (!node.attrs) return;
     for (const attribute of node.attrs) {
+      if (['srcset', 'imagesrcset'].includes(attribute.name)) {
+        attribute.value = attribute.value.split(',').map(candidate => {
+          const [url, ...descriptor] = candidate.trim().split(/\s+/);
+          if (!url || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(url)) return candidate.trim();
+          const resolved = new URL(url, `${origin}${route}`);
+          return `${base}${resolved.pathname.slice(1)}${resolved.search}${resolved.hash}${descriptor.length ? ` ${descriptor.join(' ')}` : ''}`;
+        }).join(', ');
+      }
       if (!['href', 'src', 'poster'].includes(attribute.name) || !attribute.value || /^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(attribute.value)) continue;
       const resolved = new URL(attribute.value, `${origin}${route}`);
       if (resolved.pathname.endsWith('/index.html')) resolved.pathname = resolved.pathname.slice(0, -10);
@@ -152,5 +174,20 @@ export function prepareDocument(html, { route, base = '/', root = process.cwd(),
       }
     }
   });
+  applyResponsiveImages(document, { root, base });
   return serialize(document);
+}
+
+export function imageUrls(html, { base = '/' } = {}) {
+  const urls = new Set();
+  walkNodes(parse(html), node => {
+    if (node.tagName !== 'img') return;
+    const src = attr(node, 'src');
+    if (!src) return;
+    const url = new URL(src, origin);
+    if (url.origin !== origin || !/\.(?:jpe?g|png|webp)$/i.test(url.pathname) || /logo/i.test(url.pathname)) return;
+    const pathname = base !== '/' && url.pathname.startsWith(base) ? `/${url.pathname.slice(base.length)}` : url.pathname;
+    urls.add(`${origin}${pathname}`);
+  });
+  return [...urls];
 }

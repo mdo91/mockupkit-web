@@ -34,6 +34,7 @@ test('production builds preserve Google bindings, verification tags, canonical r
     await mkdir(path.join(root, 'src'), { recursive: true });
     await cp(path.join(repository, 'src/assets'), path.join(root, 'src/assets'), { recursive: true });
     await cp(path.join(repository, 'src/pages.json'), path.join(root, 'src/pages.json'));
+    await cp(path.join(repository, 'src/image-assets.json'), path.join(root, 'src/image-assets.json'));
     const original = new Map(await Promise.all(names.map(async name => [name, await readFile(path.join(root, name), 'utf8')])));
     for (const base of ['/', '/mockupkit-web/']) {
       const result = await build({ root, base });

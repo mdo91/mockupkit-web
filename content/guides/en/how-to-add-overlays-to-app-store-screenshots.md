@@ -13,26 +13,27 @@ related: ["how-to-make-app-store-screenshots-on-mac", "best-app-store-screenshot
 translationKey: "add-overlays-to-app-store-screenshots"
 ---
 
-Add an image overlay to an App Store screenshot mockup only when it helps explain the app screen. In Mockup Kit on a Mac, compose the iPhone capture and headline first, add your own overlay image, then check that the result remains readable and does not obscure important controls.
+In Mockup Kit on a Mac, import an iPhone screenshot in **Store Mockup**. Open **Overlay**, choose **Add Images…**, then select the overlay’s thumbnail. You can drag the image on the canvas or place it with **Horizontal** and **Vertical**. Use **Scale** to make room for the callout while keeping the app’s controls visible.
 
-## Prepare the composition
+## Add and position the image
 
-1. Capture the screen from the app you plan to release, using publishable sample data. Choose the message that screen should convey.
-2. Import the capture into Store Mockup and choose a canvas appropriate for your listing. Check [Apple's screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications) for the supported device sizes; the editor's presets are not an exhaustive list of Apple's requirements.
-3. Set the background and headline, then position the device so the relevant interface is visible. The [Mac screenshot guide](/blog/how-to-make-app-store-screenshots-on-mac/) covers the full composition workflow.
-4. Add your own image overlay and position it around the device. Keep it clear of the screen's important labels and controls. Adjust the composition until the overlay supports the message instead of competing with it.
-5. Review the result at full size and at a small browsing size. Remove the overlay if the screen and headline communicate the same idea more clearly without it.
+1. Open the board you want to edit. Import your app capture first if the board is empty. The **Overlay** section appears once the board has a screenshot. Use artwork you have permission to publish.
+2. In **Overlay**, choose **Add Images…** and pick your image files. If you add several, click the thumbnail for the image you want to adjust. Its outline shows which overlay is selected.
+3. Drag the selected image into position on the canvas. Use **Horizontal** or **Vertical** for a smaller adjustment along one axis. Change **Scale** if the overlay crowds the device or the headline.
+4. Use **Rounded Corners** or **Rotation** if they help the callout read clearly. With two overlays on the board, click each thumbnail before adjusting it. To delete an unwanted image, select its thumbnail and choose **Remove Selected**.
 
-## Try an overlay with a purpose
+For the canvas, device frame and headline, see the [Mac screenshot guide](/blog/how-to-make-app-store-screenshots-on-mac/). Check [Apple’s screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications) for the device sizes accepted for your listing.
 
-Imagine a budgeting app screen showing a monthly spending chart. The headline says “See where it goes.” A small image highlighting a category could draw attention to the chart, but it should not cover the category labels or suggest a feature the app does not have.
+## Fix clipping after moving or rotating an overlay
+
+Suppose a fictional budgeting app shows a monthly chart. You want to point out one category, so you add a small arrow image beside the phone. The arrow fits at first. When you turn it toward the chart, one corner extends close to the edge of the canvas.
+
+Select the arrow’s thumbnail and run screenshot preflight to check for a clipped overlay. Keep the desired angle and move the arrow inward with **Horizontal** or **Vertical**, one axis at a time. If moving inward covers a category label, reduce **Scale** or use less **Rotation**, then run preflight again. If preflight reports an unreadable overlay, replace the image with a readable copy before adjusting its placement. Inspect the final image at full size and at a small browsing size.
 
 Compare the same composition with and without that image. First identify the chart, then read the headline, then inspect the overlay. If the overlay draws attention before the chart or repeats what the headline already says, move it away from the interface or leave it out. Check the result against the actual app screen, not just the decorated mockup.
 
-For a set of boards, repeat that test on each screen. An overlay need not appear everywhere; consistent spacing and typography can tie the set together. The [background recipes](/blog/best-app-store-screenshot-backgrounds-and-gradients/) offer ways to separate the device from its surroundings without adding another image.
+If you need more separation around the phone, the [background recipes](/blog/best-app-store-screenshot-backgrounds-and-gradients/) show ways to create it with color and layout.
 
 ## Check the exported image
 
-Screenshot preflight can flag missing or unreadable overlays and clipped overlays, alongside other issues such as title overflow. Resolve any warnings and inspect the exported image yourself: a technical check cannot decide whether an overlay is clear or accurately represents the app.
-
-Export a selected screenshot as PNG or JPEG, reopen the file, and check its dimensions, crop, headline, and interface. Inspect the upload in App Store Connect as well. One selected screenshot or creative export is free; Premium unlocks unlimited selected exports and Export All. Projects are available during the current app session, so keep your source captures, overlay artwork, and finished exports outside the app before quitting.
+Export the selected screenshot as PNG or JPEG. Reopen the file to check that the whole arrow is visible, the category labels still read clearly, and the dimensions match your target. Inspect the upload in App Store Connect as well. Keep the source captures, overlay artwork and finished exports outside Mockup Kit before quitting because the editor keeps projects for the current session.

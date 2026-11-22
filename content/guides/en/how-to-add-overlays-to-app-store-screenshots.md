@@ -18,7 +18,7 @@ In Mockup Kit on a Mac, import an iPhone screenshot in **Store Mockup**. Open **
 ## Add and position the image
 
 1. Open the board you want to edit. Import your app capture first if the board is empty. The **Overlay** section appears once the board has a screenshot. Use artwork you have permission to publish.
-2. In **Overlay**, choose **Add Images…** and pick your image files. If you add several, click the thumbnail for the image you want to adjust. Its outline shows which overlay is selected.
+2. In **Overlay**, choose **Add Images…** and pick your image files. If you add several, click the thumbnail for the image you want to adjust.
 3. Drag the selected image into position on the canvas. Use **Horizontal** or **Vertical** for a smaller adjustment along one axis. Change **Scale** if the overlay crowds the device or the headline.
 4. Use **Rounded Corners** or **Rotation** if they help the callout read clearly. With two overlays on the board, click each thumbnail before adjusting it. To delete an unwanted image, select its thumbnail and choose **Remove Selected**.
 
@@ -28,7 +28,7 @@ For the canvas, device frame and headline, see the [Mac screenshot guide](/blog/
 
 Suppose a fictional budgeting app shows a monthly chart. You want to point out one category, so you add a small arrow image beside the phone. The arrow fits at first. When you turn it toward the chart, one corner extends close to the edge of the canvas.
 
-Select the arrow’s thumbnail and run screenshot preflight to check for a clipped overlay. Keep the desired angle and move the arrow inward with **Horizontal** or **Vertical**, one axis at a time. If moving inward covers a category label, reduce **Scale** or use less **Rotation**, then run preflight again. If preflight reports an unreadable overlay, replace the image with a readable copy before adjusting its placement. Inspect the final image at full size and at a small browsing size.
+Select the arrow’s thumbnail and run screenshot preflight. A clipping warning means the arrow’s rotated bounds extend beyond the canvas safe area. Keep the desired angle and move the arrow inward with **Horizontal** or **Vertical**, one axis at a time. If moving inward covers a category label, reduce **Scale** or use less **Rotation**, then run preflight again. If preflight reports an unreadable overlay, replace the image with a readable copy before adjusting its placement. Inspect the exported image at full size for any cut-off pixels and at a small browsing size for readability.
 
 Compare the same composition with and without that image. First identify the chart, then read the headline, then inspect the overlay. If the overlay draws attention before the chart or repeats what the headline already says, move it away from the interface or leave it out. Check the result against the actual app screen, not just the decorated mockup.
 

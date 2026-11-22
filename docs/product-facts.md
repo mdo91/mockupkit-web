@@ -16,6 +16,14 @@ Version 2.6.0 adds the layered Headers & Search Results studio, six editable cat
 
 Composition and export run locally. Projects remain in memory during the app session. Saving and reopening project files is not yet available. Do not claim persistent project storage, account sync, collaborative editing, or external AI services.
 
+## Screenshot overlay controls and preflight
+
+The overlay controls were checked on November 22, 2026 against the pinned version 2.5.8 [Store Mockup view](https://github.com/mdo91/mockupkit/blob/f8cd468aaac23b004bb4b839248c444efb5ffce3/Mockuper/Views/StoreMockupView.swift). The [current reviewed source](https://github.com/mdo91/mockupkit/blob/b72bca75c26daef47b9b0e977b5240ed733a31bc/Mockuper/Views/StoreMockupView.swift) contains the same inspector code.
+
+Import a screenshot to reveal the **Overlay** inspector. **Add Images…** imports overlay artwork. Select an image's thumbnail to edit it with **Scale**, **Horizontal**, **Vertical**, **Rounded Corners**, and **Rotation**, or drag the selected overlay on the canvas. **Remove Selected** removes that selected overlay. The separate Headers & Search Results studio has its own layer controls.
+
+The pinned [screenshot preflight engine](https://github.com/mdo91/mockupkit/blob/f8cd468aaac23b004bb4b839248c444efb5ffce3/Mockuper/Services/StoreMockupPreflightEngine.swift), rechecked on November 22, reports an **error** for an unreadable overlay image and a **warning** when an overlay's rotated bounds extend beyond the canvas safe area. Overlays are optional. The canvas safe area belongs to the screenshot editor. Header and Search artwork uses separate Apple specifications. Inspect the exported image as well as the preflight result.
+
 ## Pricing claims
 
 The native export policy allows one successful selected screenshot or creative export free. Premium allows unlimited selected exports and Export All. Eligible monthly subscribers may see a three-day introductory trial; the app's StoreKit configuration and paywall include that offer. State eligibility and direct readers to the current purchase sheet instead of treating one storefront's prices as universal.

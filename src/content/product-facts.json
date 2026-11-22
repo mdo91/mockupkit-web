@@ -38,6 +38,8 @@
         "Import iPhone captures and choose from multiple portrait canvas presets.",
         "Compose device framing, backgrounds, gradients, multiline headlines, and image overlays.",
         "Adjust fonts, colors, image placement, and rounded corners.",
+        "After importing a screenshot, open Overlay and use Add Images… to import overlay artwork. Select its thumbnail to edit it or use Remove Selected to remove it.",
+        "The selected screenshot overlay has Scale, Horizontal, Vertical, Rounded Corners, and Rotation controls, and can be dragged on the canvas.",
         "Export the selected screenshot as PNG or JPEG."
       ]
     },
@@ -105,7 +107,9 @@
       "verifiedInVersion": "2.5.8",
       "details": [
         "Render screenshot compositions as opaque RGB images.",
-        "Check missing or unreadable screenshots and overlays, missing device frames or translations, title overflow, clipped overlays, and duplicate export filenames.",
+        "Check missing or unreadable screenshots, unreadable overlay images, missing device frames or translations, title overflow, and duplicate export filenames.",
+        "An unreadable overlay image produces an error. An overlay whose rotated bounds extend beyond the canvas safe area produces a clipping warning.",
+        "Overlays are optional. The canvas safe area belongs to the screenshot editor. Header and Search artwork uses separate Apple specifications.",
         "Selected screenshot export supports PNG/JPEG; screenshot Export All produces JPEG files."
       ]
     },
@@ -249,9 +253,14 @@
       "checkedAt": "2026-11-19"
     },
     {
+      "title": "Version 2.5.8 screenshot Overlay inspector labels and selected-image controls",
+      "url": "https://github.com/mdo91/mockupkit/blob/f8cd468aaac23b004bb4b839248c444efb5ffce3/Mockuper/Views/StoreMockupView.swift",
+      "checkedAt": "2026-11-22"
+    },
+    {
       "title": "Version 2.5.8 screenshot preflight and filename convention",
       "url": "https://github.com/mdo91/mockupkit/blob/f8cd468aaac23b004bb4b839248c444efb5ffce3/Mockuper/Services/StoreMockupPreflightEngine.swift",
-      "checkedAt": "2026-11-19"
+      "checkedAt": "2026-11-22"
     },
     {
       "title": "Version 2.5.8 opaque RGB screenshot rendering",

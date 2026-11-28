@@ -3,8 +3,8 @@ title: "How to create before-and-after App Store screenshots"
 description: "Show one visible change in your app across two App Store screenshots. Capture matching states, align the mockup boards, and check that the result is clear at a small size."
 slug: how-to-create-before-and-after-app-store-screenshots
 locale: en
-publishedAt: "2026-11-27"
-updatedAt: "2026-11-27"
+publishedAt: "2026-11-28"
+updatedAt: "2026-11-28"
 primaryQuery: before and after app store screenshots
 translationKey: before-and-after-app-store-screenshots
 status: published
